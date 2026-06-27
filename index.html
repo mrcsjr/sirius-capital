@@ -436,60 +436,45 @@ nav.scrolled{
 .cta-sub{font-size:15px;color:var(--c50);margin-bottom:44px}
 .cta-acts{display:flex;gap:28px;justify-content:center;align-items:center;flex-wrap:wrap}
 
+/* ── LIGHT SECTIONS ─────────────────────────────────────────── */
+section.light{
+  background:#EDE8DD;
+  --cream:#0C1928;
+  --c70:rgba(12,25,40,.68);
+  --c50:rgba(12,25,40,.48);
+  --c25:rgba(12,25,40,.22);
+  --c10:rgba(12,25,40,.09);
+  --c05:rgba(12,25,40,.04);
+  --rw:rgba(12,25,40,.10);
+  --rg:rgba(150,120,40,.22);
+  --gold:#8A6E20;
+  --ga:rgba(138,110,32,.10);
+  --gb:rgba(138,110,32,.28);
+  --gc:rgba(138,110,32,.55);
+  --bg:#EDE8DD;--bg2:#E5DFD3;--bg3:#DDD7CB;
+}
+
 /* ── CONTATO ────────────────────────────────────────────────── */
 #contato{border-top:1px solid var(--rw)}
-.ct-grid{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:80px;align-items:start;
+.ct-head{margin-bottom:56px}
+.ct-cols{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;border-top:1px solid var(--rw);
+  margin-bottom:60px;
 }
-.ct-info{display:flex;flex-direction:column;gap:0;margin-top:36px}
-.ct-row{
-  display:flex;gap:18px;align-items:flex-start;
-  padding:22px 0;border-bottom:1px solid var(--rw);
+.ct-col{
+  padding:32px 32px 32px 0;
+  border-right:1px solid var(--rw);
 }
-.ct-row:first-child{border-top:1px solid var(--rw)}
-.ct-ic{
-  width:36px;height:36px;flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;
-  color:var(--gold);
-}
+.ct-col:last-child{border-right:none;padding-right:0}
+.ct-col:not(:first-child){padding-left:32px}
 .ct-lbl{
   font-size:10px;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:5px;
+  color:var(--gold);margin-bottom:8px;
 }
-.ct-val{font-size:14px;color:var(--c70);line-height:1.55}
+.ct-val{font-size:14px;color:var(--c70);line-height:1.6}
 .ct-val a:hover{color:var(--cream)}
-
-.ct-form{padding-top:16px}
-.ft{
-  font-family:'Playfair Display',serif;
-  font-size:20px;margin-bottom:28px;
-}
-.fg{margin-bottom:16px}
-.fg label{
-  display:block;font-size:11px;
-  letter-spacing:.1em;text-transform:uppercase;
-  color:var(--c50);margin-bottom:8px;
-}
-.fg input,.fg textarea,.fg select{
-  width:100%;
-  background:var(--c05);
-  border:1px solid var(--rw);
-  border-radius:4px;
-  padding:13px 14px;
-  font-size:14px;color:var(--cream);
-  font-family:'DM Sans',sans-serif;
-  outline:none;transition:border-color .2s;
-  -webkit-appearance:none;
-}
-.fg input:focus,.fg textarea:focus,.fg select:focus{
-  border-color:var(--gb);
-}
-.fg input::placeholder,.fg textarea::placeholder{color:var(--c25)}
-.fg select option{background:var(--bg)}
-.fg textarea{resize:vertical;min-height:90px}
-.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.fsub{width:100%;justify-content:center;margin-top:8px}
+.ct-cta{border-top:1px solid var(--rw);padding-top:48px}
 
 /* ── FOOTER ─────────────────────────────────────────────────── */
 footer{
@@ -541,7 +526,8 @@ footer{
   .srv-grid{grid-template-columns:1fr}
   .srv{border-right:none;border-bottom:1px solid var(--rw);padding:36px 0}
   .srv:last-child{border-bottom:none}
-  #missao .grid,#dif .grid,.ct-grid{grid-template-columns:1fr;gap:48px}
+  #missao .grid,#dif .grid{grid-template-columns:1fr;gap:48px}
+  .ct-cols{grid-template-columns:1fr 1fr}
   .hero-inner{grid-template-columns:1fr;gap:0}
   .hero-stats{display:none}
   .fb-grid{grid-template-columns:1fr}
@@ -568,7 +554,9 @@ footer{
   .dores-list{grid-template-columns:1fr}
   .dor,.dor:nth-child(even){padding-left:0;border-right:none}
   #dores .head,#srv .head{margin-bottom:40px}
-  .frow{grid-template-columns:1fr}
+  .ct-cols{grid-template-columns:1fr}
+  .ct-col,.ct-col:not(:first-child){padding:24px 0;border-right:none;border-bottom:1px solid var(--rw)}
+  .ct-col:last-child{border-bottom:none}
   .dif-right{padding-top:0}
   .big-quote{font-size:20px}
   .cta-acts{flex-direction:column;align-items:stretch}
@@ -647,7 +635,7 @@ footer{
 </section>
 
 <!-- ── MISSÃO ────────────────────────────────────────────────── -->
-<section id="missao" class="alt">
+<section id="missao" class="light">
   <div class="wrap">
     <div class="grid">
       <div>
@@ -809,7 +797,7 @@ footer{
 </section>
 
 <!-- ── SERVIÇOS ──────────────────────────────────────────────── -->
-<section id="srv">
+<section id="srv" class="light">
   <div class="wrap">
     <div class="head rev">
       <span class="label">04 — Serviços</span>
@@ -1001,96 +989,31 @@ footer{
 <!-- ── CONTATO ───────────────────────────────────────────────── -->
 <section id="contato">
   <div class="wrap">
-    <div class="ct-grid">
-      <div>
-        <span class="label rev">07 — Contato</span>
-        <h2 class="display rev" style="margin-top:16px">Estamos em Salvador<br>e Lauro de Freitas.</h2>
-        <div class="rule rev"></div>
-        <div class="ct-info">
-
-          <div class="ct-row rev d1">
-            <div class="ct-ic">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.55 5.55l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            </div>
-            <div>
-              <div class="ct-lbl">Telefone / WhatsApp</div>
-              <div class="ct-val"><a href="https://wa.me/5571999961119">(71) 99996-1119</a></div>
-            </div>
-          </div>
-
-          <div class="ct-row rev d2">
-            <div class="ct-ic">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
-            <div>
-              <div class="ct-lbl">E-mail</div>
-              <div class="ct-val"><a href="mailto:admin@siriuscapital.com.br">admin@siriuscapital.com.br</a></div>
-            </div>
-          </div>
-
-          <div class="ct-row rev d3">
-            <div class="ct-ic">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            </div>
-            <div>
-              <div class="ct-lbl">Instagram</div>
-              <div class="ct-val"><a href="https://instagram.com/siriuscapital.br" target="_blank">@siriuscapital.br</a></div>
-            </div>
-          </div>
-
-          <div class="ct-row rev d4">
-            <div class="ct-ic">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <div>
-              <div class="ct-lbl">Endereços</div>
-              <div class="ct-val">
-                Av. Santos Dumont, 3092 — Lauro de Freitas<br>
-                Alameda dos Sombreiros, 1038 — Salvador
-              </div>
-            </div>
-          </div>
-
-        </div>
+    <div class="ct-head">
+      <span class="label rev">07 — Contato</span>
+      <h2 class="display rev" style="margin-top:16px">Fale com a Sirius Capital.</h2>
+      <div class="rule rev"></div>
+    </div>
+    <div class="ct-cols rev">
+      <div class="ct-col">
+        <div class="ct-lbl">WhatsApp</div>
+        <div class="ct-val"><a href="https://wa.me/5571999961119">(71) 99996-1119</a></div>
       </div>
-
-      <div class="ct-form rev d2">
-        <p class="ft">Solicite uma consulta gratuita</p>
-        <form onsubmit="handleForm(event)">
-          <div class="frow">
-            <div class="fg">
-              <label>Nome completo</label>
-              <input type="text" placeholder="Seu nome" required>
-            </div>
-            <div class="fg">
-              <label>WhatsApp</label>
-              <input type="tel" placeholder="(71) 99999-9999">
-            </div>
-          </div>
-          <div class="fg">
-            <label>E-mail</label>
-            <input type="email" placeholder="seu@email.com" required>
-          </div>
-          <div class="fg">
-            <label>Objetivo principal</label>
-            <select>
-              <option value="" disabled selected>Selecione...</option>
-              <option>Organizar minhas finanças</option>
-              <option>Começar a investir</option>
-              <option>Proteger meu patrimônio</option>
-              <option>Planejamento empresarial</option>
-              <option>Criptoativos</option>
-              <option>Outro</option>
-            </select>
-          </div>
-          <div class="fg">
-            <label>Mensagem (opcional)</label>
-            <textarea placeholder="Conte um pouco sobre a sua situação financeira atual..."></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary fsub">Quero minha consulta gratuita →</button>
-        </form>
+      <div class="ct-col">
+        <div class="ct-lbl">E-mail</div>
+        <div class="ct-val"><a href="mailto:admin@siriuscapital.com.br">admin@siriuscapital.com.br</a></div>
       </div>
-
+      <div class="ct-col">
+        <div class="ct-lbl">Instagram</div>
+        <div class="ct-val"><a href="https://instagram.com/siriuscapital.br" target="_blank">@siriuscapital.br</a></div>
+      </div>
+      <div class="ct-col">
+        <div class="ct-lbl">Endereços</div>
+        <div class="ct-val">Salvador &amp; Lauro de Freitas, BA</div>
+      </div>
+    </div>
+    <div class="ct-cta rev d2">
+      <a href="https://wa.me/5571999961119?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20consultoria%20da%20Sirius%20Capital." target="_blank" class="btn btn-primary" style="padding:15px 40px;font-size:14px">Iniciar conversa no WhatsApp →</a>
     </div>
   </div>
 </section>
