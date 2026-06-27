@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sirius Capital — Consultoria financeira personalizada em planejamento, investimentos e gestão patrimonial. Salvador e Lauro de Freitas, Bahia.">
+<title>Sirius Capital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+
+/* ── TOKENS ─────────────────────────────────────────────────── */
+:root{
+  --bg:      #0C1928;
+  --bg2:     #101F30;
+  --bg3:     #132234;
+  --gold:    #C8A84B;
+  --ga:      rgba(200,168,75,.11);
+  --gb:      rgba(200,168,75,.28);
+  --gc:      rgba(200,168,75,.55);
+  --cream:   #EDE8DD;
+  --c70:     rgba(237,232,221,.70);
+  --c50:     rgba(237,232,221,.50);
+  --c25:     rgba(237,232,221,.25);
+  --c10:     rgba(237,232,221,.10);
+  --c05:     rgba(237,232,221,.05);
+  --rg:      rgba(200,168,75,.14);
+  --rw:      rgba(237,232,221,.07);
+  --ease:    cubic-bezier(.4,0,.2,1);
+}
+
+/* ── RESET ──────────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--bg);color:var(--cream);
+  line-height:1.65;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+svg{display:block;flex-shrink:0}
+
+/* grain overlay */
+body::after{
+  content:'';position:fixed;inset:0;z-index:900;
+  pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:.032;mix-blend-mode:overlay;
+}
+
+/* ── TYPOGRAPHY ─────────────────────────────────────────────── */
+.serif{font-family:'Playfair Display',serif}
+
+.label{
+  display:block;font-size:10px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--gold);
+  font-weight:500;font-family:'DM Sans',sans-serif;
+}
+.label-w{color:var(--c50)}
+
+h2.display{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(30px,4.2vw,48px);
+  font-weight:500;line-height:1.12;
+  color:var(--cream);
+}
+.rule{width:40px;height:1px;background:var(--gold);margin:20px 0}
+.rule.c{margin-left:auto;margin-right:auto}
+
+/* ── LAYOUT ─────────────────────────────────────────────────── */
+.wrap{max-width:1120px;margin:0 auto;padding:0 5%}
+section{padding:108px 5%}
+section.alt{background:var(--bg2)}
+
+/* ── BUTTONS ────────────────────────────────────────────────── */
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;
+  cursor:pointer;transition:.22s var(--ease);border:none;
+  letter-spacing:.02em;
+}
+.btn-primary{
+  background:var(--gold);color:#0C1928;
+  padding:13px 28px;border-radius:4px;
+}
+.btn-primary:hover{background:#D9BA5A;transform:translateY(-1px);box-shadow:0 8px 28px rgba(200,168,75,.25)}
+.btn-text{
+  color:var(--c70);padding:13px 0;
+  border-bottom:1px solid var(--rw);
+}
+.btn-text:hover{color:var(--cream);border-bottom-color:var(--gc)}
+
+/* ── NAV ────────────────────────────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px 5%;
+  transition:background .3s var(--ease),border-color .3s;
+  border-bottom:1px solid transparent;
+}
+nav.scrolled{
+  background:rgba(12,25,40,.97);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom-color:var(--rw);
+}
+.nav-logo{
+  font-family:'Playfair Display',serif;font-size:19px;
+  font-weight:500;color:var(--cream);letter-spacing:.04em;
+}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;list-style:none;gap:34px}
+.nav-links a{
+  font-size:12px;font-weight:500;letter-spacing:.04em;
+  color:var(--c50);transition:color .2s;text-transform:uppercase;
+}
+.nav-links a:hover{color:var(--cream)}
+.nav-right{display:flex;align-items:center;gap:24px}
+.nav-contact{
+  font-size:12px;font-weight:500;letter-spacing:.04em;
+  text-transform:uppercase;color:var(--c50);
+  transition:color .2s;
+}
+.nav-contact:hover{color:var(--gold)}
+
+.ham{display:none;flex-direction:column;gap:5px;
+  background:none;border:none;cursor:pointer;padding:2px}
+.ham span{display:block;width:20px;height:1px;background:var(--cream);transition:.2s}
+.ham.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.ham.open span:nth-child(2){opacity:0}
+.ham.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+.mobile-nav{
+  display:none;position:fixed;inset:0;
+  background:var(--bg);z-index:99;
+  flex-direction:column;align-items:center;justify-content:center;gap:40px;
+}
+.mobile-nav.open{display:flex}
+.mobile-nav a{
+  font-family:'Playfair Display',serif;font-size:32px;
+  color:var(--cream);transition:color .2s;
+}
+.mobile-nav a:hover{color:var(--gold)}
+.mobile-close{
+  position:absolute;top:24px;right:5%;
+  background:none;border:none;color:var(--c50);
+  font-size:24px;cursor:pointer;
+}
+
+/* ── HERO ───────────────────────────────────────────────────── */
+#hero{
+  position:relative;min-height:100vh;
+  display:flex;align-items:center;
+  padding:140px 5% 100px;overflow:hidden;
+}
+#sc{
+  position:absolute;inset:0;width:100%;height:100%;
+  pointer-events:none;
+}
+#hero::after{
+  content:'';position:absolute;
+  bottom:0;left:0;right:0;height:220px;
+  background:linear-gradient(transparent,var(--bg));
+  z-index:1;pointer-events:none;
+}
+.hero-inner{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:1fr auto;
+  align-items:end;gap:40px;
+  max-width:1120px;width:100%;margin:0 auto;
+}
+.hero-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(58px,9.5vw,108px);
+  font-weight:400;line-height:1.01;
+  color:var(--cream);
+}
+.hero-title em{font-style:italic;color:var(--gold)}
+.hero-sub-block{margin-top:36px;padding-top:28px;border-top:1px solid var(--rw);max-width:460px}
+.hero-sub{
+  font-size:15px;color:var(--c70);line-height:1.8;
+  margin-bottom:32px;
+}
+.hero-acts{display:flex;gap:28px;align-items:center;flex-wrap:wrap}
+.hero-stats{
+  display:flex;flex-direction:column;gap:32px;
+  text-align:right;padding-bottom:8px;
+}
+.hs-val{
+  font-family:'Playfair Display',serif;
+  font-size:38px;color:var(--gold);line-height:1;
+}
+.hs-label{font-size:10px;color:var(--c50);margin-top:5px;letter-spacing:.08em}
+
+/* ── MISSÃO ─────────────────────────────────────────────────── */
+#missao .grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:start;
+}
+.missao-values{margin-top:40px;display:flex;flex-direction:column;gap:0}
+.mv-item{
+  display:flex;align-items:flex-start;gap:16px;
+  padding:22px 0;border-bottom:1px solid var(--rw);
+}
+.mv-item:first-child{border-top:1px solid var(--rw)}
+.mv-icon{
+  width:32px;height:32px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--gold);margin-top:1px;
+}
+.mv-name{
+  font-family:'Playfair Display',serif;
+  font-size:15px;color:var(--cream);
+  margin-bottom:4px;
+}
+.mv-desc{font-size:13px;color:var(--c50);line-height:1.6}
+
+/* ── DORES ──────────────────────────────────────────────────── */
+#dores{border-top:1px solid var(--rw)}
+#dores .head{
+  display:grid;grid-template-columns:1fr 2fr;
+  gap:80px;align-items:start;margin-bottom:64px;
+}
+#dores .head .section-sub{
+  font-size:15px;color:var(--c70);line-height:1.8;
+  padding-top:8px;
+}
+.dores-list{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:0;border-top:1px solid var(--rw);
+}
+.dor{
+  padding:28px 24px 28px 0;
+  border-bottom:1px solid var(--rw);
+  border-right:1px solid var(--rw);
+  transition:background .2s;
+}
+.dor:nth-child(even){padding-left:32px;border-right:none}
+.dor:hover{background:var(--c05)}
+.dor-n{
+  font-family:'Playfair Display',serif;
+  font-size:11px;color:var(--gold);
+  letter-spacing:.12em;margin-bottom:12px;
+  display:block;
+}
+.dor-t{font-size:14px;color:var(--c70);line-height:1.7}
+
+/* ── METODOLOGIA ────────────────────────────────────────────── */
+#met{border-top:1px solid var(--rw)}
+#met .head{
+  display:grid;grid-template-columns:auto 1fr;
+  gap:80px;align-items:end;margin-bottom:72px;
+}
+.met-360{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(60px,8vw,90px);font-weight:400;
+  color:var(--ga);line-height:1;
+  letter-spacing:-.02em;
+}
+.pilares{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;border:1px solid var(--rw);border-radius:4px;overflow:hidden;
+}
+.pilar{
+  padding:36px 28px;
+  border-right:1px solid var(--rw);
+  position:relative;overflow:hidden;
+  transition:background .25s;
+}
+.pilar:last-child{border-right:none}
+.pilar:hover{background:var(--c05)}
+.pilar::before{
+  content:attr(data-n);
+  position:absolute;bottom:-12px;right:16px;
+  font-family:'Playfair Display',serif;
+  font-size:80px;font-weight:700;
+  color:rgba(200,168,75,.05);
+  line-height:1;pointer-events:none;
+}
+.pilar-icon{
+  width:36px;height:36px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--gold);margin-bottom:20px;
+}
+.pilar-name{
+  font-family:'Playfair Display',serif;
+  font-size:17px;color:var(--cream);
+  margin-bottom:12px;line-height:1.2;
+}
+.pilar-desc{font-size:13px;color:var(--c50);line-height:1.7}
+
+/* ── SERVIÇOS ───────────────────────────────────────────────── */
+#srv{border-top:1px solid var(--rw)}
+#srv .head{margin-bottom:64px}
+.srv-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:0;border-top:1px solid var(--rw);
+}
+.srv{
+  padding:44px 36px 44px 0;
+  border-right:1px solid var(--rw);
+  border-bottom:1px solid var(--rw);
+}
+.srv:last-child{border-right:none}
+.srv-icon{
+  width:40px;height:40px;
+  color:var(--gold);margin-bottom:28px;
+}
+.srv-name{
+  font-family:'Playfair Display',serif;
+  font-size:21px;color:var(--cream);
+  margin-bottom:16px;line-height:1.2;
+}
+.srv-rule{width:32px;height:1px;background:var(--rg);margin-bottom:20px}
+.srv-list{list-style:none;display:flex;flex-direction:column;gap:9px}
+.srv-list li{
+  font-size:13px;color:var(--c50);line-height:1.6;
+  display:flex;align-items:flex-start;gap:10px;
+}
+.srv-list li::before{
+  content:'';width:4px;height:4px;
+  background:var(--gold);border-radius:50%;
+  flex-shrink:0;margin-top:7px;
+}
+
+/* ── DIFERENCIAIS ───────────────────────────────────────────── */
+#dif .grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:96px;align-items:start;
+}
+.dif-list{display:flex;flex-direction:column;gap:0;margin-top:36px}
+.dif-item{
+  padding:24px 0;border-bottom:1px solid var(--rw);
+  display:grid;grid-template-columns:auto 1fr;gap:20px;
+}
+.dif-num{
+  font-family:'Playfair Display',serif;
+  font-size:12px;color:var(--gold);
+  letter-spacing:.1em;margin-top:2px;
+}
+.dif-title{
+  font-family:'Playfair Display',serif;
+  font-size:16px;color:var(--cream);margin-bottom:6px;
+}
+.dif-text{font-size:13px;color:var(--c50);line-height:1.65}
+.dif-right{padding-top:48px}
+.big-quote{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(22px,2.8vw,30px);
+  font-style:italic;color:var(--cream);
+  line-height:1.45;
+}
+.big-quote-mark{
+  display:block;font-size:72px;line-height:.5;
+  color:var(--gold);margin-bottom:24px;font-style:normal;
+}
+.big-quote-cite{
+  display:block;font-style:normal;
+  font-family:'DM Sans',sans-serif;
+  font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--gold);
+  margin-top:28px;
+}
+.dif-stats{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:1px;background:var(--rw);
+  border:1px solid var(--rw);margin-top:24px;
+  border-radius:4px;overflow:hidden;
+}
+.dstat{
+  background:var(--bg);padding:24px;text-align:center;
+}
+.dstat-v{
+  font-family:'Playfair Display',serif;
+  font-size:30px;color:var(--gold);
+}
+.dstat-l{font-size:11px;color:var(--c50);margin-top:4px}
+
+/* ── FEEDBACKS ──────────────────────────────────────────────── */
+#fb{border-top:1px solid var(--rw)}
+#fb .head{
+  display:grid;grid-template-columns:1fr 2fr;
+  gap:80px;margin-bottom:64px;align-items:end;
+}
+.fb-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:0;border:1px solid var(--rw);border-radius:4px;overflow:hidden;
+}
+.fb-card{
+  padding:36px 30px;
+  border-right:1px solid var(--rw);
+  transition:background .2s;
+}
+.fb-card:last-child{border-right:none}
+.fb-card:hover{background:var(--c05)}
+.fb-qmark{
+  font-family:'Playfair Display',serif;
+  font-size:56px;color:var(--gold);line-height:.8;
+  display:block;margin-bottom:16px;
+}
+.fb-text{
+  font-size:14px;color:var(--c70);
+  font-style:italic;line-height:1.8;margin-bottom:24px;
+}
+.fb-author{
+  border-top:1px solid var(--rw);
+  padding-top:16px;
+}
+.fb-name{
+  font-family:'Playfair Display',serif;
+  font-size:13px;color:var(--cream);
+}
+.fb-role{font-size:11px;color:var(--c50);margin-top:3px}
+
+/* ── CTA ────────────────────────────────────────────────────── */
+#cta{
+  border-top:1px solid var(--rw);
+  text-align:center;position:relative;overflow:hidden;
+}
+#cta::before{
+  content:'';position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:800px;height:800px;
+  background:radial-gradient(circle,rgba(200,168,75,.055) 0%,transparent 60%);
+  pointer-events:none;
+}
+.cta-inner{position:relative;z-index:1}
+.cta-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(36px,6vw,68px);
+  font-weight:400;line-height:1.1;
+  color:var(--cream);margin-bottom:20px;
+}
+.cta-title em{font-style:italic;color:var(--gold)}
+.cta-sub{font-size:15px;color:var(--c50);margin-bottom:44px}
+.cta-acts{display:flex;gap:28px;justify-content:center;align-items:center;flex-wrap:wrap}
+
+/* ── CONTATO ────────────────────────────────────────────────── */
+#contato{border-top:1px solid var(--rw)}
+.ct-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:start;
+}
+.ct-info{display:flex;flex-direction:column;gap:0;margin-top:36px}
+.ct-row{
+  display:flex;gap:18px;align-items:flex-start;
+  padding:22px 0;border-bottom:1px solid var(--rw);
+}
+.ct-row:first-child{border-top:1px solid var(--rw)}
+.ct-ic{
+  width:36px;height:36px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--gold);
+}
+.ct-lbl{
+  font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:5px;
+}
+.ct-val{font-size:14px;color:var(--c70);line-height:1.55}
+.ct-val a:hover{color:var(--cream)}
+
+.ct-form{padding-top:16px}
+.ft{
+  font-family:'Playfair Display',serif;
+  font-size:20px;margin-bottom:28px;
+}
+.fg{margin-bottom:16px}
+.fg label{
+  display:block;font-size:11px;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--c50);margin-bottom:8px;
+}
+.fg input,.fg textarea,.fg select{
+  width:100%;
+  background:var(--c05);
+  border:1px solid var(--rw);
+  border-radius:4px;
+  padding:13px 14px;
+  font-size:14px;color:var(--cream);
+  font-family:'DM Sans',sans-serif;
+  outline:none;transition:border-color .2s;
+  -webkit-appearance:none;
+}
+.fg input:focus,.fg textarea:focus,.fg select:focus{
+  border-color:var(--gb);
+}
+.fg input::placeholder,.fg textarea::placeholder{color:var(--c25)}
+.fg select option{background:var(--bg)}
+.fg textarea{resize:vertical;min-height:90px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fsub{width:100%;justify-content:center;margin-top:8px}
+
+/* ── FOOTER ─────────────────────────────────────────────────── */
+footer{
+  border-top:1px solid var(--rw);
+  padding:36px 5%;
+}
+.foot{
+  max-width:1120px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
+}
+.foot-logo{
+  font-family:'Playfair Display',serif;
+  font-size:17px;color:var(--cream);letter-spacing:.04em;
+}
+.foot-logo span{color:var(--gold)}
+.foot-copy{font-size:11px;color:var(--c50);letter-spacing:.04em}
+.foot-social{display:flex;gap:8px}
+.sl{
+  width:34px;height:34px;border:1px solid var(--rw);border-radius:3px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--c50);transition:.2s;
+}
+.sl:hover{border-color:var(--rg);color:var(--gold)}
+
+/* ── WA FLOAT ───────────────────────────────────────────────── */
+.wa{
+  position:fixed;bottom:28px;right:28px;z-index:80;
+  width:52px;height:52px;background:#25D366;
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(37,211,102,.35);
+  transition:.25s var(--ease);
+}
+.wa:hover{transform:scale(1.1);box-shadow:0 8px 30px rgba(37,211,102,.45)}
+.wa svg{color:#fff}
+
+/* ── REVEAL ─────────────────────────────────────────────────── */
+.rev{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rev.on{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.17s}
+.d3{transition-delay:.26s}.d4{transition-delay:.35s}
+
+/* ── RESPONSIVE ─────────────────────────────────────────────── */
+@media(max-width:960px){
+  .pilares{grid-template-columns:1fr 1fr}
+  .pilar{border-bottom:1px solid var(--rw)}
+  .pilar:nth-child(2){border-right:none}
+  .pilar:nth-child(3),.pilar:nth-child(4){border-bottom:none}
+  .pilar:nth-child(4){border-right:none}
+  .srv-grid{grid-template-columns:1fr}
+  .srv{border-right:none;border-bottom:1px solid var(--rw);padding:36px 0}
+  .srv:last-child{border-bottom:none}
+  #missao .grid,#dif .grid,.ct-grid{grid-template-columns:1fr;gap:48px}
+  .hero-inner{grid-template-columns:1fr;gap:0}
+  .hero-stats{display:none}
+  .fb-grid{grid-template-columns:1fr}
+  .fb-card{border-right:none;border-bottom:1px solid var(--rw)}
+  .fb-card:last-child{border-bottom:none}
+  #dores .head,#fb .head{grid-template-columns:1fr;gap:24px}
+  #met .head{grid-template-columns:1fr;gap:0}
+  .met-360{display:none}
+  .nav-links,.nav-contact{display:none}
+  .ham{display:flex}
+}
+@media(max-width:600px){
+  section{padding:64px 5%}
+  #hero{padding:110px 5% 72px}
+  .hero-title{font-size:clamp(40px,11vw,58px)}
+  .hero-sub-block{margin-top:24px;padding-top:20px}
+  .hero-sub{font-size:14px}
+  .hero-acts{flex-direction:column;align-items:stretch;gap:14px}
+  .hero-acts .btn-primary{justify-content:center}
+  .pilares{grid-template-columns:1fr}
+  .pilar:nth-child(2){border-right:none}
+  .pilar:nth-child(3){border-bottom:1px solid var(--rw)}
+  .pilar:last-child{border-bottom:none}
+  .dores-list{grid-template-columns:1fr}
+  .dor,.dor:nth-child(even){padding-left:0;border-right:none}
+  #dores .head,#srv .head{margin-bottom:40px}
+  .frow{grid-template-columns:1fr}
+  .dif-right{padding-top:0}
+  .big-quote{font-size:20px}
+  .cta-acts{flex-direction:column;align-items:stretch}
+  .cta-acts .btn-primary,.cta-acts .btn-text{justify-content:center;text-align:center}
+  .foot{flex-direction:column;align-items:flex-start;gap:14px}
+  .foot-copy{order:3}
+  .foot-social{order:2}
+  h2.display{font-size:clamp(26px,7vw,40px)}
+  .fb-text{font-size:13px}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────────────────────── -->
+<nav id="nav">
+  <div class="nav-logo">Sirius<span>Capital</span></div>
+  <ul class="nav-links">
+    <li><a href="#missao">Sobre</a></li>
+    <li><a href="#met">Metodologia</a></li>
+    <li><a href="#srv">Serviços</a></li>
+    <li><a href="#dif">Diferenciais</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="https://wa.me/5571999961119" target="_blank" class="nav-contact">WhatsApp →</a>
+  </div>
+  <button class="ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-nav" id="mnav">
+  <button class="mobile-close" id="mcls">✕</button>
+  <a href="#missao" class="ml">Sobre</a>
+  <a href="#met" class="ml">Metodologia</a>
+  <a href="#srv" class="ml">Serviços</a>
+  <a href="#dif" class="ml">Diferenciais</a>
+  <a href="#contato" class="ml">Contato</a>
+  <a href="https://wa.me/5571999961119" target="_blank" class="btn btn-primary" style="margin-top:12px">WhatsApp</a>
+</div>
+
+<!-- ── HERO ─────────────────────────────────────────────────── -->
+<section id="hero">
+  <canvas id="sc"></canvas>
+  <div class="hero-inner">
+    <div>
+      <h1 class="hero-title">
+        Aqui, a<br>
+        <em>estrela</em><br>
+        é você.
+      </h1>
+      <div class="hero-sub-block">
+        <p class="hero-sub">
+          Planejamento, investimentos e gestão patrimonial com quem entende de verdade os seus objetivos — e trabalha exclusivamente para realizá-los.
+        </p>
+        <div class="hero-acts">
+          <a href="https://wa.me/5571999961119?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20consultoria%20da%20Sirius%20Capital." target="_blank" class="btn btn-primary">Iniciar minha consultoria</a>
+          <a href="#met" class="btn btn-text">Como funciona ↓</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hs-val">360°</div>
+        <div class="hs-label">Metodologia</div>
+      </div>
+      <div>
+        <div class="hs-val">100%</div>
+        <div class="hs-label">Imparcial</div>
+      </div>
+      <div>
+        <div class="hs-val">IV</div>
+        <div class="hs-label">Pilares</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MISSÃO ────────────────────────────────────────────────── -->
+<section id="missao" class="alt">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <span class="label rev">01 — Sobre nós</span>
+        <h2 class="display rev" style="margin-top:16px">Capacitamos você a tomar as melhores decisões financeiras.</h2>
+        <div class="rule rev"></div>
+        <p class="rev" style="font-size:15px;color:var(--c70);line-height:1.8;max-width:440px">
+          A Sirius Capital é uma consultoria financeira especializada em ajudar pessoas e empresas a alcançarem seus objetivos por meio de estratégias personalizadas de investimento e gestão patrimonial. Segurança, crescimento e liberdade — em cada decisão.
+        </p>
+      </div>
+      <div>
+        <div class="missao-values">
+
+          <div class="mv-item rev d1">
+            <div class="mv-icon">
+              <!-- Eye / Transparency -->
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <div>
+              <div class="mv-name">Transparência</div>
+              <div class="mv-desc">Clareza em cada recomendação, sem conflitos de interesse.</div>
+            </div>
+          </div>
+
+          <div class="mv-item rev d2">
+            <div class="mv-icon">
+              <!-- Star / Excellence -->
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div>
+              <div class="mv-name">Excelência</div>
+              <div class="mv-desc">Profissionais certificados e resultados consistentes.</div>
+            </div>
+          </div>
+
+          <div class="mv-item rev d3">
+            <div class="mv-icon">
+              <!-- Lock / Security -->
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <div>
+              <div class="mv-name">Segurança</div>
+              <div class="mv-desc">Proteção patrimonial como princípio, não como promessa.</div>
+            </div>
+          </div>
+
+          <div class="mv-item rev d4">
+            <div class="mv-icon">
+              <!-- Zap / Innovation -->
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <div>
+              <div class="mv-name">Inovação</div>
+              <div class="mv-desc">Tecnologia e estratégias modernas a favor dos seus objetivos.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DORES ─────────────────────────────────────────────────── -->
+<section id="dores">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <span class="label rev">02 — Diagnóstico</span>
+        <h2 class="display rev" style="margin-top:16px">Você se identifica?</h2>
+      </div>
+      <p class="section-sub rev" style="font-size:15px;color:var(--c70);line-height:1.8;padding-top:8px">
+        Cada jornada financeira tem os seus obstáculos. Reconhecer o problema é o primeiro passo para superá-lo com estratégia.
+      </p>
+    </div>
+    <div class="dores-list">
+      <div class="dor rev d1">
+        <span class="dor-n">01</span>
+        <p class="dor-t">Dificuldade em expandir o patrimônio de forma estruturada e estratégica.</p>
+      </div>
+      <div class="dor rev d2">
+        <span class="dor-n">02</span>
+        <p class="dor-t">Falta de organização e controle real sobre gastos e fluxo de caixa.</p>
+      </div>
+      <div class="dor rev d3">
+        <span class="dor-n">03</span>
+        <p class="dor-t">Dificuldade em investir com segurança e rentabilidade consistente.</p>
+      </div>
+      <div class="dor rev d1">
+        <span class="dor-n">04</span>
+        <p class="dor-t">Insegurança quanto ao futuro financeiro e à proteção do patrimônio.</p>
+      </div>
+      <div class="dor rev d2">
+        <span class="dor-n">05</span>
+        <p class="dor-t">Ausência de planejamento eficiente para os objetivos de vida.</p>
+      </div>
+      <div class="dor rev d3">
+        <span class="dor-n">06</span>
+        <p class="dor-t">Falta de tempo para cuidar das questões financeiras pessoais com profundidade.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── METODOLOGIA ───────────────────────────────────────────── -->
+<section id="met" class="alt">
+  <div class="wrap">
+    <div class="head">
+      <div class="met-360 rev">360°</div>
+      <div>
+        <span class="label rev">03 — Metodologia</span>
+        <h2 class="display rev" style="margin-top:16px">Quatro pilares.<br>Uma visão completa.</h2>
+        <div class="rule rev"></div>
+        <p class="rev" style="font-size:15px;color:var(--c70);line-height:1.8;max-width:480px">
+          Atuamos de forma integrada nos quatro pilares que compõem uma vida financeira sólida e sustentável — para cada etapa da sua jornada.
+        </p>
+      </div>
+    </div>
+    <div class="pilares">
+
+      <div class="pilar rev d1" data-n="I">
+        <div class="pilar-icon">
+          <!-- Lines / Organization -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><line x1="3" y1="5" x2="21" y2="5"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="19" x2="14" y2="19"/></svg>
+        </div>
+        <div class="pilar-name">Organização</div>
+        <p class="pilar-desc">Diagnóstico financeiro completo. Análise precisa do fluxo de caixa e reformulação objetiva do orçamento.</p>
+      </div>
+
+      <div class="pilar rev d2" data-n="II">
+        <div class="pilar-icon">
+          <!-- Shield / Protection -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="pilar-name">Proteção</div>
+        <p class="pilar-desc">Segurança patrimonial e gestão de riscos. Identificamos vulnerabilidades e criamos camadas de proteção.</p>
+      </div>
+
+      <div class="pilar rev d3" data-n="III">
+        <div class="pilar-icon">
+          <!-- Trend up / Accumulation -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <div class="pilar-name">Acúmulo</div>
+        <p class="pilar-desc">Estratégias de investimento personalizadas, voltadas para seus objetivos e horizonte de tempo.</p>
+      </div>
+
+      <div class="pilar rev d4" data-n="IV">
+        <div class="pilar-icon">
+          <!-- Maximize / Expansion -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+        </div>
+        <div class="pilar-name">Expansão</div>
+        <p class="pilar-desc">Estudo estratégico para aquisição de bens e crescimento patrimonial com máxima eficiência.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVIÇOS ──────────────────────────────────────────────── -->
+<section id="srv">
+  <div class="wrap">
+    <div class="head rev">
+      <span class="label">04 — Serviços</span>
+      <h2 class="display" style="margin-top:16px">Soluções para cada etapa da sua jornada.</h2>
+    </div>
+    <div class="srv-grid">
+
+      <div class="srv rev d1">
+        <div class="srv-icon">
+          <!-- User / Personal -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div class="srv-name">Consultoria Financeira Pessoal</div>
+        <div class="srv-rule"></div>
+        <ul class="srv-list">
+          <li>Planejamento financeiro completo</li>
+          <li>Investimentos inteligentes e personalizados</li>
+          <li>Proteção patrimonial e gestão de riscos</li>
+          <li>Construção de riqueza de longo prazo</li>
+          <li>Gestão de dívidas e orçamento doméstico</li>
+          <li>Planejamento de metas de vida</li>
+        </ul>
+      </div>
+
+      <div class="srv rev d2" style="padding-left:36px">
+        <div class="srv-icon">
+          <!-- Hexagon / Crypto -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/><line x1="12" y1="2" x2="12" y2="22"/><path d="M2 8.5l10 6.5 10-6.5"/></svg>
+        </div>
+        <div class="srv-name">Consultoria em Criptoativos</div>
+        <div class="srv-rule"></div>
+        <ul class="srv-list">
+          <li>Análise e gestão de ativos digitais</li>
+          <li>Estratégias de entrada e saída seguras</li>
+          <li>Diversificação e proteção de capital</li>
+          <li>Educação sobre o mercado cripto</li>
+          <li>Gestão de riscos em alta volatilidade</li>
+        </ul>
+      </div>
+
+      <div class="srv rev d3" style="padding-left:36px">
+        <div class="srv-icon">
+          <!-- Briefcase / Business -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <div class="srv-name">Consultoria Empresarial</div>
+        <div class="srv-rule"></div>
+        <ul class="srv-list">
+          <li>Estratégias de crescimento financeiro</li>
+          <li>Gestão de caixa e capital de giro</li>
+          <li>Estruturação financeira corporativa</li>
+          <li>Otimização de investimentos</li>
+          <li>Separação PF/PJ e planejamento tributário</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── DIFERENCIAIS ──────────────────────────────────────────── -->
+<section id="dif" class="alt">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <span class="label rev">05 — Por que a Sirius</span>
+        <h2 class="display rev" style="margin-top:16px">O que nos faz diferentes.</h2>
+        <div class="rule rev"></div>
+        <div class="dif-list">
+          <div class="dif-item rev d1">
+            <span class="dif-num">01</span>
+            <div>
+              <div class="dif-title">Atendimento Personalizado</div>
+              <div class="dif-text">Soluções construídas do zero para as suas necessidades, não templates genéricos do mercado.</div>
+            </div>
+          </div>
+          <div class="dif-item rev d2">
+            <span class="dif-num">02</span>
+            <div>
+              <div class="dif-title">Equipe Especializada</div>
+              <div class="dif-text">Profissionais altamente qualificados e certificados, com experiência comprovada no mercado.</div>
+            </div>
+          </div>
+          <div class="dif-item rev d3">
+            <span class="dif-num">03</span>
+            <div>
+              <div class="dif-title">Metodologia Comprovada</div>
+              <div class="dif-text">A Metodologia 360 entrega resultados consistentes e mensuráveis para cada perfil.</div>
+            </div>
+          </div>
+          <div class="dif-item rev d4">
+            <span class="dif-num">04</span>
+            <div>
+              <div class="dif-title">Acompanhamento Contínuo</div>
+              <div class="dif-text">Relação de longo prazo para evolução constante — ao seu lado em cada decisão.</div>
+            </div>
+          </div>
+          <div class="dif-item rev d4">
+            <span class="dif-num">05</span>
+            <div>
+              <div class="dif-title">Imparcialidade Total</div>
+              <div class="dif-text">Sem conflitos de interesse. Nossa única missão é o seu resultado.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dif-right rev d2">
+        <div>
+          <span class="big-quote-mark">"</span>
+          <p class="big-quote">
+            Sua decisão é o primeiro passo para transformar objetivos em conquistas. Estamos juntos nessa jornada.
+          </p>
+          <cite class="big-quote-cite">— Sirius Capital</cite>
+        </div>
+        <div class="dif-stats">
+          <div class="dstat">
+            <div class="dstat-v">360°</div>
+            <div class="dstat-l">Visão integral</div>
+          </div>
+          <div class="dstat">
+            <div class="dstat-v">100%</div>
+            <div class="dstat-l">Imparcial</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEEDBACKS ─────────────────────────────────────────────── -->
+<section id="fb">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <span class="label rev">06 — Depoimentos</span>
+        <h2 class="display rev" style="margin-top:16px">O que nossos clientes dizem.</h2>
+      </div>
+      <p class="rev" style="font-size:15px;color:var(--c70);line-height:1.8;padding-top:8px">
+        Resultados reais de quem decidiu transformar a sua relação com o dinheiro.
+      </p>
+    </div>
+    <div class="fb-grid">
+      <div class="fb-card rev d1">
+        <span class="fb-qmark">"</span>
+        <p class="fb-text">Eu vivia no piloto automático com o dinheiro — pagava as contas e achava que tava bem. Quando sentei com a Sirius, percebi o quanto estava deixando escapar. Hoje tenho controle de verdade e durmo melhor.</p>
+        <div class="fb-author">
+          <div class="fb-name">Ricardo A.</div>
+          <div class="fb-role">Empresário, Salvador</div>
+        </div>
+      </div>
+      <div class="fb-card rev d2">
+        <span class="fb-qmark">"</span>
+        <p class="fb-text">Achei que investir era coisa de quem já tinha muito dinheiro. A Sirius me mostrou que não — e me ajudou a começar do zero, com um plano que faz sentido pra minha vida, não pra vida de outra pessoa.</p>
+        <div class="fb-author">
+          <div class="fb-name">Carolina M.</div>
+          <div class="fb-role">Professora, Lauro de Freitas</div>
+        </div>
+      </div>
+      <div class="fb-card rev d3">
+        <span class="fb-qmark">"</span>
+        <p class="fb-text">Já fui a outros consultores e sempre saí com a sensação de que estavam me vendendo algo. Aqui foi diferente — senti que a conversa era sobre mim, sobre o que eu quero de verdade. Isso não tem preço.</p>
+        <div class="fb-author">
+          <div class="fb-name">Felipe T.</div>
+          <div class="fb-role">Médico, Salvador</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ───────────────────────────────────────────────────── -->
+<section id="cta" class="alt">
+  <div class="wrap">
+    <div class="cta-inner">
+      <span class="label rev" style="margin-bottom:24px">Dê o primeiro passo</span>
+      <h2 class="cta-title rev">
+        Pronto para transformar<br>seus objetivos em <em>conquistas?</em>
+      </h2>
+      <div class="rule c rev"></div>
+      <p class="cta-sub rev">Uma conversa já é suficiente para entender onde você está<br>e para onde pode ir. Sem compromisso, sem jargão.</p>
+      <div class="cta-acts rev d2">
+        <a href="https://wa.me/5571999961119?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20consultoria%20da%20Sirius%20Capital." target="_blank" class="btn btn-primary" style="padding:15px 36px;font-size:14px">Falar no WhatsApp</a>
+        <a href="mailto:admin@siriuscapital.com.br" class="btn btn-text" style="font-size:14px">Enviar e-mail →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTATO ───────────────────────────────────────────────── -->
+<section id="contato">
+  <div class="wrap">
+    <div class="ct-grid">
+      <div>
+        <span class="label rev">07 — Contato</span>
+        <h2 class="display rev" style="margin-top:16px">Estamos em Salvador<br>e Lauro de Freitas.</h2>
+        <div class="rule rev"></div>
+        <div class="ct-info">
+
+          <div class="ct-row rev d1">
+            <div class="ct-ic">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.55 5.55l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="ct-lbl">Telefone / WhatsApp</div>
+              <div class="ct-val"><a href="https://wa.me/5571999961119">(71) 99996-1119</a></div>
+            </div>
+          </div>
+
+          <div class="ct-row rev d2">
+            <div class="ct-ic">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="ct-lbl">E-mail</div>
+              <div class="ct-val"><a href="mailto:admin@siriuscapital.com.br">admin@siriuscapital.com.br</a></div>
+            </div>
+          </div>
+
+          <div class="ct-row rev d3">
+            <div class="ct-ic">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </div>
+            <div>
+              <div class="ct-lbl">Instagram</div>
+              <div class="ct-val"><a href="https://instagram.com/siriuscapital.br" target="_blank">@siriuscapital.br</a></div>
+            </div>
+          </div>
+
+          <div class="ct-row rev d4">
+            <div class="ct-ic">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="ct-lbl">Endereços</div>
+              <div class="ct-val">
+                Av. Santos Dumont, 3092 — Lauro de Freitas<br>
+                Alameda dos Sombreiros, 1038 — Salvador
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="ct-form rev d2">
+        <p class="ft">Solicite uma consulta gratuita</p>
+        <form onsubmit="handleForm(event)">
+          <div class="frow">
+            <div class="fg">
+              <label>Nome completo</label>
+              <input type="text" placeholder="Seu nome" required>
+            </div>
+            <div class="fg">
+              <label>WhatsApp</label>
+              <input type="tel" placeholder="(71) 99999-9999">
+            </div>
+          </div>
+          <div class="fg">
+            <label>E-mail</label>
+            <input type="email" placeholder="seu@email.com" required>
+          </div>
+          <div class="fg">
+            <label>Objetivo principal</label>
+            <select>
+              <option value="" disabled selected>Selecione...</option>
+              <option>Organizar minhas finanças</option>
+              <option>Começar a investir</option>
+              <option>Proteger meu patrimônio</option>
+              <option>Planejamento empresarial</option>
+              <option>Criptoativos</option>
+              <option>Outro</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label>Mensagem (opcional)</label>
+            <textarea placeholder="Conte um pouco sobre a sua situação financeira atual..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary fsub">Quero minha consulta gratuita →</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ────────────────────────────────────────────────── -->
+<footer>
+  <div class="foot">
+    <div class="foot-logo">Sirius<span>Capital</span></div>
+    <div class="foot-copy">© 2025 Sirius Capital. Todos os direitos reservados.</div>
+    <div class="foot-social">
+      <a href="https://instagram.com/siriuscapital.br" target="_blank" class="sl" title="Instagram">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="https://wa.me/5571999961119" target="_blank" class="sl" title="WhatsApp">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      </a>
+      <a href="mailto:admin@siriuscapital.com.br" class="sl" title="E-mail">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp float -->
+<a href="https://wa.me/5571999961119?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20Sirius%20Capital." target="_blank" class="wa" title="WhatsApp">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+</a>
+
+<!-- ── SCRIPTS ────────────────────────────────────────────────── -->
+<script>
+/* starfield */
+(function(){
+  const c=document.getElementById('sc'),ctx=c.getContext('2d');
+  let s=[];
+  function rs(){c.width=window.innerWidth;c.height=window.innerHeight}
+  function is(n){
+    s=[];
+    /* one bright "Sirius" star */
+    s.push({x:c.width*.72,y:c.height*.28,r:2.4,base:.9,speed:.003,phase:0,sirius:true});
+    for(let i=1;i<n;i++)s.push({
+      x:Math.random()*c.width,y:Math.random()*c.height,
+      r:Math.random()*1.1+.15,
+      base:Math.random()*.55+.08,
+      speed:Math.random()*.007+.002,
+      phase:Math.random()*Math.PI*2
+    });
+  }
+  function draw(t){
+    ctx.clearRect(0,0,c.width,c.height);
+    s.forEach(st=>{
+      const a=st.base*(0.5+0.5*Math.sin(t*st.speed+st.phase));
+      ctx.beginPath();
+      ctx.arc(st.x,st.y,st.r,0,Math.PI*2);
+      if(st.sirius){
+        /* glow for main star */
+        const g=ctx.createRadialGradient(st.x,st.y,0,st.x,st.y,12);
+        g.addColorStop(0,`rgba(200,168,75,${a})`);
+        g.addColorStop(1,'rgba(200,168,75,0)');
+        ctx.fillStyle=g;ctx.arc(st.x,st.y,12,0,Math.PI*2);ctx.fill();
+        ctx.beginPath();ctx.arc(st.x,st.y,st.r,0,Math.PI*2);
+      }
+      ctx.fillStyle=`rgba(200,168,75,${a})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  rs();is(110);requestAnimationFrame(draw);
+  window.addEventListener('resize',()=>{rs();is(110)});
+})();
+
+/* nav */
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>50),{passive:true});
+
+/* mobile menu */
+const ham=document.getElementById('ham'),mn=document.getElementById('mnav');
+function tog(o){mn.classList.toggle('open',o);ham.classList.toggle('open',o);document.body.style.overflow=o?'hidden':''}
+ham.onclick=()=>tog(!mn.classList.contains('open'));
+document.getElementById('mcls').onclick=()=>tog(false);
+document.querySelectorAll('.ml').forEach(a=>a.addEventListener('click',()=>tog(false)));
+
+/* reveal */
+const obs=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target)}});
+},{threshold:.1,rootMargin:'0px 0px -36px 0px'});
+document.querySelectorAll('.rev').forEach(el=>obs.observe(el));
+
+/* form */
+function handleForm(e){
+  e.preventDefault();
+  const b=e.target.querySelector('[type=submit]');
+  b.textContent='✓ Recebido! Entraremos em contato.';
+  b.style.background='#2D7A52';b.disabled=true;
+  setTimeout(()=>window.open('https://wa.me/5571999961119?text=Ol%C3%A1%2C%20preenchi%20o%20formul%C3%A1rio%20no%20site%20e%20gostaria%20de%20agendar%20uma%20consulta.','_blank'),1400);
+}
+</script>
+</body>
+</html>
