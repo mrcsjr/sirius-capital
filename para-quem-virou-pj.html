@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Virou PJ? Agora você é o seu próprio RH | Sirius Capital</title>
+<meta name="description" content="Quem sai da CLT perde 13º, férias, FGTS e plano de saúde. Calcule quanto precisa faturar como PJ para empatar e monte o plano que reconstrói essa proteção.">
+<link rel="canonical" href="https://gruposiriuscapital.com.br/para-quem-virou-pj.html">
+<meta property="og:title" content="Virou PJ? Agora você é o seu próprio RH">
+<meta property="og:description" content="Calculadora CLT x PJ e o plano da Sirius Capital para quem virou PJ.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://gruposiriuscapital.com.br/para-quem-virou-pj.html">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNiIgZmlsbD0iIzBDMTkyOCIvPgogIDxwb2x5Z29uIHBvaW50cz0iMTYsNCAxOC40LDEzLjYgMjgsMTYgMTguNCwxOC40IDE2LDI4IDEzLjYsMTguNCA0LDE2IDEzLjYsMTMuNiIgZmlsbD0iI0M4QTg0QiIvPgo8L3N2Zz4=">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap">
+<style>
+:root{
+  --bg:#0C1928; --cream:#EDE8DD; --gold:#C8A84B;
+  --ga:rgba(200,168,75,.11); --gb:rgba(200,168,75,.28); --gc:rgba(200,168,75,.55);
+  --rw:rgba(237,232,221,.07);
+  --ease:cubic-bezier(.4,0,.2,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--cream);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;line-height:1.12;margin:0;letter-spacing:-.01em}
+em{font-style:italic;color:var(--gold)}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+
+nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:20px;padding:16px clamp(20px,5vw,48px);
+  background:rgba(12,25,40,.82);backdrop-filter:saturate(170%) blur(18px);-webkit-backdrop-filter:saturate(170%) blur(18px);
+  border-bottom:1px solid var(--rw)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:20px}
+.nav-logo span{color:var(--gold);margin-left:.3em}
+.nav-links{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:14px;flex:1}
+.nav-links a{color:rgba(237,232,221,.72);transition:color .2s var(--ease)}
+.nav-links a:hover{color:var(--cream)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:2px;font-family:'DM Sans',sans-serif;
+  font-size:14px;font-weight:400;padding:13px 24px;border:1px solid transparent;cursor:pointer;transition:all .25s var(--ease);white-space:nowrap}
+.btn-primary{background:var(--gold);color:#0C1928;font-weight:500}
+.btn-primary:hover{background:#d8ba63}
+.btn-ghost{border-color:var(--gc);color:var(--gold)}
+.btn-ghost:hover{background:var(--ga)}
+.btn-sm{padding:9px 16px;font-size:13px}
+.ham{display:none;background:none;border:0;color:var(--cream);font-size:22px;cursor:pointer;padding:4px 8px}
+
+section{padding:clamp(64px,9vw,120px) 0}
+.eyebrow{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.lead{font-size:clamp(16px,2vw,19px);color:rgba(237,232,221,.66);max-width:62ch;line-height:1.75}
+.alt{background:rgba(237,232,221,.022);border-top:1px solid var(--rw);border-bottom:1px solid var(--rw)}
+
+#hero{padding-top:clamp(56px,8vw,92px)}
+.hero-title{font-size:clamp(38px,6.6vw,74px)}
+.hero-acts{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
+.hero-note{margin-top:26px;font-size:13px;color:rgba(237,232,221,.46)}
+
+.grid{display:grid;gap:1px;background:var(--rw);border:1px solid var(--rw);margin-top:52px;grid-template-columns:repeat(3,1fr)}
+.cell{background:var(--bg);padding:clamp(24px,3vw,34px)}
+.cell h3{font-size:20px;margin-bottom:12px}
+.cell p{font-size:14.5px;color:rgba(237,232,221,.62);margin:0;line-height:1.72}
+.cell .num{font-family:'Playfair Display',serif;font-size:13px;color:var(--gold);display:block;margin-bottom:14px;letter-spacing:.1em}
+
+.planos{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:52px;align-items:stretch}
+.plano{border:1px solid var(--rw);padding:clamp(22px,2.4vw,28px);display:flex;flex-direction:column;background:rgba(237,232,221,.014)}
+.plano.destaque{border-color:var(--gb);background:linear-gradient(170deg,var(--ga),transparent 62%)}
+.plano-nome{font-family:'Playfair Display',serif;font-size:21px;margin-bottom:14px}
+.plano-preco{font-family:'Playfair Display',serif;font-size:clamp(26px,3vw,34px);line-height:1;margin-bottom:4px}
+.plano-preco small{font-family:'DM Sans',sans-serif;font-size:13px;color:rgba(237,232,221,.55);font-weight:300}
+.plano ul{list-style:none;margin:22px 0 0;padding:0;font-size:14px;color:rgba(237,232,221,.66);flex:1}
+.plano li{padding:8px 0 8px 24px;position:relative;border-top:1px solid var(--rw)}
+.plano li:first-child{border-top:0}
+.plano li::before{content:'';position:absolute;left:4px;top:16px;width:6px;height:6px;background:var(--gold);transform:rotate(45deg)}
+.plano li.soon{color:rgba(237,232,221,.42)}
+.plano li.soon::before{background:rgba(237,232,221,.3)}
+.plano .btn{margin-top:22px;width:100%}
+.plano-nota{font-size:12px;color:rgba(237,232,221,.42);margin-top:12px;line-height:1.55}
+
+.faq{margin-top:44px;border-top:1px solid var(--rw)}
+.faq details{border-bottom:1px solid var(--rw)}
+.faq summary{padding:22px 0;cursor:pointer;font-size:17px;font-family:'Playfair Display',serif;list-style:none;display:flex;justify-content:space-between;gap:20px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';color:var(--gold);font-size:22px;font-family:'DM Sans',sans-serif;flex-shrink:0}
+.faq details[open] summary::after{content:'−'}
+.faq p{margin:0 0 24px;font-size:15px;color:rgba(237,232,221,.64);max-width:70ch}
+
+.cta-final{text-align:center}
+.cta-final h2{font-size:clamp(30px,4.6vw,52px);margin-bottom:22px}
+.cta-final .hero-acts{justify-content:center}
+
+footer{border-top:1px solid var(--rw);padding:38px 0;font-size:13px;color:rgba(237,232,221,.46);line-height:1.9}
+footer a{color:rgba(237,232,221,.6);text-decoration:underline;text-underline-offset:3px}
+
+
+@media(max-width:860px){
+  .nav-links{display:none}
+  .ham{display:block}
+  .grid{grid-template-columns:1fr}
+  .planos{grid-template-columns:1fr}
+}
+
+.calc{display:grid;grid-template-columns:1.05fr 1fr;gap:1px;background:var(--rw);border:1px solid var(--rw);margin-top:52px}
+.calc-in,.calc-out{background:var(--bg);padding:clamp(24px,3vw,36px)}
+.calc-in fieldset{border:0;margin:0 0 22px;padding:0}
+.calc-in legend{font-family:'Playfair Display',serif;font-size:18px;margin-bottom:14px;padding:0}
+.fld{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.fld label{font-size:12px;letter-spacing:.06em;color:rgba(237,232,221,.66)}
+.fld small{font-size:12px;color:rgba(237,232,221,.42)}
+.fld input{font-family:'DM Sans',sans-serif;font-size:16px;color:var(--cream);background:rgba(237,232,221,.04);border:1px solid rgba(237,232,221,.16);border-radius:2px;padding:12px 14px;font-variant-numeric:tabular-nums}
+.fld input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px var(--ga)}
+.calc-out{display:flex;flex-direction:column;gap:18px}
+.res-row{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid var(--rw);padding-bottom:14px;align-items:baseline}
+.res-row span{font-size:14px;color:rgba(237,232,221,.62)}
+.res-row strong{font-family:'Playfair Display',serif;font-weight:500;font-size:22px}
+.res-big{border:1px solid var(--gb);background:linear-gradient(170deg,var(--ga),transparent 70%);padding:22px}
+.res-big span{display:block;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.res-big strong{font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(30px,4vw,40px);line-height:1.1}
+.res-big p{margin:10px 0 0;font-size:14px;color:rgba(237,232,221,.62)}
+.pos{color:#7FC79A}.neg{color:#E39A8C}
+.calc-nota{font-size:12.5px;color:rgba(237,232,221,.46);line-height:1.65;margin:0}
+.limites{margin-top:36px;padding:22px 26px;border-left:2px solid var(--gold);background:var(--ga);font-size:14px;color:rgba(237,232,221,.66);max-width:80ch}
+.lista-2026{margin:28px 0 0;padding:0;list-style:none;max-width:72ch}
+.lista-2026 li{padding:16px 0 16px 26px;position:relative;border-top:1px solid var(--rw);font-size:16px;color:rgba(237,232,221,.72)}
+.lista-2026 li::before{content:'';position:absolute;left:4px;top:26px;width:6px;height:6px;background:var(--gold);transform:rotate(45deg)}
+.foot-legal{display:block;margin-top:10px;font-size:12px;color:rgba(237,232,221,.38);max-width:80ch}
+@media(max-width:860px){.calc{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">Sirius<span>Capital</span></a>
+  <ul class="nav-links">
+    <li><a href="#perdeu">O que você perdeu</a></li>
+    <li><a href="#calculadora">Calculadora</a></li>
+    <li><a href="#plano">O que fazemos</a></li>
+    <li><a href="/#preco">Como funciona</a></li>
+  </ul>
+  <a class="btn btn-primary btn-sm" href="/#diagnostico">Diagnóstico gratuito</a>
+</nav>
+
+<section id="hero">
+  <div class="wrap">
+    <div class="eyebrow">Para quem virou PJ</div>
+    <h1 class="hero-title">Virou PJ?<br>Agora você é o seu<br>próprio <em>RH</em>.</h1>
+    <p class="lead" style="margin-top:28px">Quem sai da CLT ganha mais na nota, mas perde 13º, férias, FGTS, plano de saúde e o INSS pago pela empresa. A Sirius monta o plano que reconstrói essa proteção e transforma a renda maior em patrimônio.</p>
+    <div class="hero-acts">
+      <a class="btn btn-primary" href="/#diagnostico">Fazer meu diagnóstico gratuito</a>
+      <a class="btn btn-ghost" href="#calculadora">Calcular CLT x PJ</a>
+    </div>
+    <p class="hero-note">Diagnóstico gratuito · sem produtos próprios · Salvador e online</p>
+  </div>
+</section>
+
+<section id="perdeu" class="alt">
+  <div class="wrap">
+    <div class="eyebrow">O que você deixou de ter</div>
+    <h2 style="font-size:clamp(28px,4vw,44px)">Na CLT, a empresa pagava.<br>No PJ, é com <em>você</em>.</h2>
+    <div class="grid">
+      <div class="cell"><span class="num">01</span><h3>13º salário</h3><p>Um salário a mais no fim do ano. No PJ, só existe se você separar ao longo dos meses.</p></div>
+      <div class="cell"><span class="num">02</span><h3>Férias + 1/3</h3><p>Trinta dias pagos e um terço a mais. No PJ, mês sem trabalho costuma ser mês sem nota.</p></div>
+      <div class="cell"><span class="num">03</span><h3>FGTS</h3><p>8% do salário depositados todo mês, que viravam reserva sem você perceber.</p></div>
+      <div class="cell"><span class="num">04</span><h3>Plano de saúde</h3><p>Muitas vezes pago ou subsidiado pela empresa. Agora sai do seu faturamento.</p></div>
+      <div class="cell"><span class="num">05</span><h3>INSS da empresa</h3><p>A contribuição patronal que ajudava a sua aposentadoria. No PJ, a aposentadoria é plano seu.</p></div>
+      <div class="cell"><span class="num">06</span><h3>Rescisão e seguro-desemprego</h3><p>A proteção de quando o contrato acaba. No PJ, quem segura esse intervalo é a sua reserva.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="calculadora">
+  <div class="wrap">
+    <div class="eyebrow">Calculadora CLT x PJ</div>
+    <h2 style="font-size:clamp(28px,4vw,44px)">Quanto você precisa faturar<br>para <em>empatar</em>?</h2>
+    <p class="lead" style="margin-top:24px">Coloque a proposta CLT e a proposta PJ. Os valores abaixo são um exemplo: troque pelos seus.</p>
+
+    <div class="calc">
+      <form class="calc-in" id="calcForm" onsubmit="return false">
+        <fieldset>
+          <legend>Proposta CLT</legend>
+          <div class="fld"><label for="cS">Salário bruto mensal (R$)</label><input id="cS" inputmode="decimal" value="12.000"></div>
+          <div class="fld"><label for="cB">Benefícios mensais (R$)</label><input id="cB" inputmode="decimal" value="1.200"><small>Vale-refeição, plano de saúde pago pela empresa e outros.</small></div>
+        </fieldset>
+        <fieldset>
+          <legend>Proposta PJ</legend>
+          <div class="fld"><label for="cF">Faturamento mensal (R$)</label><input id="cF" inputmode="decimal" value="18.000"></div>
+          <div class="fld"><label for="cA">Impostos da empresa (% do faturamento)</label><input id="cA" inputmode="decimal" value="6"><small>Alíquota efetiva. Pergunte ao seu contador.</small></div>
+          <div class="fld"><label for="cC">Custos mensais do PJ (R$)</label><input id="cC" inputmode="decimal" value="900"><small>Contador, plano de saúde por sua conta e outros.</small></div>
+        </fieldset>
+      </form>
+      <div class="calc-out" aria-live="polite">
+        <div class="res-row"><span>CLT por ano</span><strong id="rClt">-</strong></div>
+        <div class="res-row"><span>PJ por ano, depois de impostos e custos</span><strong id="rPj">-</strong></div>
+        <div class="res-row"><span>Diferença por ano</span><strong id="rDif">-</strong></div>
+        <div class="res-big">
+          <span>Para empatar com a CLT</span>
+          <strong id="rEmp">-</strong>
+          <p>de faturamento por mês como PJ.</p>
+        </div>
+        <p class="calc-nota">Como calculamos: CLT por ano = salário × 12 + 13º + 1/3 de férias + FGTS (8% sobre salário, 13º e 1/3 de férias) + benefícios × 12. PJ por ano = (faturamento − impostos da empresa − custos) × 12. Estimativa simplificada: não inclui o imposto de renda da pessoa física nem o INSS, que existem nos dois casos e variam. Não substitui a análise do seu contador.</p>
+      </div>
+    </div>
+    <div class="hero-acts">
+      <a class="btn btn-primary" href="/#diagnostico">Quanto separar por mês? Fazer diagnóstico</a>
+    </div>
+  </div>
+</section>
+
+<section id="plano" class="alt">
+  <div class="wrap">
+    <div class="eyebrow">O que a Sirius faz por quem virou PJ</div>
+    <h2 style="font-size:clamp(28px,4vw,44px)">A proteção da CLT,<br>agora no seu <em>plano</em>.</h2>
+    <div class="grid">
+      <div class="cell"><span class="num">01</span><h3>Quanto separar por mês</h3><p>Para o 13º, as férias, a reserva e a aposentadoria que deixaram de vir da empresa. Em reais, não em percentual genérico.</p></div>
+      <div class="cell"><span class="num">02</span><h3>Pró-labore e lucros no plano</h3><p>Quanto retirar da empresa e quando, dentro do seu orçamento. A parte tributária é decidida com o seu contador.</p></div>
+      <div class="cell"><span class="num">03</span><h3>Pessoa e empresa lado a lado</h3><p>No app, as contas da pessoa física e da empresa aparecem separadas e somadas, com faturamento e impostos do mês.</p></div>
+    </div>
+    <div class="hero-acts">
+      <a class="btn btn-primary" href="/#diagnostico">Fazer meu diagnóstico gratuito</a>
+      <a class="btn btn-ghost" href="/#preco">Ver como funciona</a>
+    </div>
+  </div>
+</section>
+
+<section id="2026">
+  <div class="wrap">
+    <div class="eyebrow">O que muda em 2026</div>
+    <h2 style="font-size:clamp(28px,4vw,44px)">Regras novas para quem<br>ganha <em>bem</em>.</h2>
+    <ul class="lista-2026">
+      <li>Desde janeiro de 2026 (Lei 15.270/2025), lucros e dividendos acima de R$ 50 mil no mês, pagos por uma mesma empresa a uma mesma pessoa, têm 10% de imposto retido na fonte.</li>
+      <li>Quem recebe mais de R$ 600 mil por ano, somando todas as rendas, entra no imposto mínimo. A primeira declaração com essa regra é a de 2027.</li>
+      <li>O Supremo Tribunal Federal ainda julga a contratação de profissionais como PJ (Tema 1.389). Atualizamos esta página quando houver decisão.</li>
+    </ul>
+    <p class="limites">Estas são regras gerais. Como elas se aplicam ao seu caso, o seu contador confirma. A Sirius cuida do plano e trabalha junto com ele; não analisamos contratos de trabalho nem a validade de contratações como PJ.</p>
+  </div>
+</section>
+
+<section class="cta-final alt">
+  <div class="wrap">
+    <h2>Seu RH agora<br>é um <em>plano</em>.</h2>
+    <p class="lead" style="margin:0 auto 6px">Comece pelo diagnóstico gratuito. Quatro respostas e a conversa começa no WhatsApp.</p>
+    <div class="hero-acts">
+      <a class="btn btn-primary" href="/#diagnostico">Fazer meu diagnóstico gratuito</a>
+      <a class="btn btn-ghost" href="https://wa.me/5571999347779?text=Ol%C3%A1%2C%20virei%20PJ%20e%20quero%20saber%20mais%20sobre%20o%20plano%20da%20Sirius%20Capital." target="_blank" rel="noopener">Falar no WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <strong style="color:rgba(237,232,221,.72);font-weight:500">SIRIUS CAPITAL LTDA</strong> · CNPJ 29.905.371/0001-02 · Lauro de Freitas/BA<br>
+    <a href="/">Site</a> ·
+    <a href="para-voce.html">Sirius para você</a> ·
+    <a href="para-consultores.html">Sirius para consultores</a> ·
+    <a href="politica-de-privacidade.html">Privacidade</a> ·
+    <a href="https://wa.me/5571999347779" target="_blank" rel="noopener">WhatsApp</a>
+    <span class="foot-legal">Investimentos geridos pela Mont Asset, gestora parceira. A Sirius Capital não tem produtos próprios. Este site tem caráter informativo e não constitui recomendação de investimento.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const brl=v=>v.toLocaleString('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0});
+  function num(s){
+    s=String(s).replace(/[^\d,.\-]/g,'');
+    if(s.includes(',')) s=s.replace(/\./g,'').replace(',','.');
+    else if(/^\d{1,3}(\.\d{3})+$/.test(s)) s=s.replace(/\./g,'');
+    const n=parseFloat(s); return isFinite(n)&&n>0?n:0;
+  }
+  function calc(){
+    const S=num($('cS').value),B=num($('cB').value),F=num($('cF').value),C=num($('cC').value);
+    const a=Math.min(num($('cA').value),99)/100;
+    const clt=S*12+S+S/3+0.08*(S*13+S/3)+B*12;
+    const pj=(F*(1-a)-C)*12;
+    const dif=pj-clt;
+    const emp=(clt/12+C)/(1-a);
+    $('rClt').textContent=brl(clt);
+    $('rPj').textContent=brl(pj);
+    const d=$('rDif'); d.textContent=(dif>=0?'+ ':'− ')+brl(Math.abs(dif))+(dif>=0?' para o PJ':' para a CLT');
+    d.className=dif>=0?'pos':'neg';
+    $('rEmp').textContent=brl(emp);
+  }
+  document.querySelectorAll('#calcForm input').forEach(i=>i.addEventListener('input',calc));
+  calc();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gruposiriuscapital.com.br/sitemap.xml

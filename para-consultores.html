@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sirius para consultores — o sistema por trás da consultoria</title>
+<meta name="description" content="O sistema que a Sirius Capital usa para conduzir a vida financeira dos seus clientes, agora disponível para o seu escritório. A partir de R$ 999 por mês.">
+<meta property="og:title" content="Sirius para consultores">
+<meta property="og:description" content="O sistema por trás da consultoria. Carteira, estudos, portal do cliente e equipe — a partir de R$ 999/mês.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNiIgZmlsbD0iIzBDMTkyOCIvPgogIDxwb2x5Z29uIHBvaW50cz0iMTYsNCAxOC40LDEzLjYgMjgsMTYgMTguNCwxOC40IDE2LDI4IDEzLjYsMTguNCA0LDE2IDEzLjYsMTMuNiIgZmlsbD0iI0M4QTg0QiIvPgo8L3N2Zz4=">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap">
+<style>
+:root{
+  --bg:#0C1928; --cream:#EDE8DD; --gold:#C8A84B;
+  --ga:rgba(200,168,75,.11); --gb:rgba(200,168,75,.28); --gc:rgba(200,168,75,.55);
+  --rw:rgba(237,232,221,.07); --rg:rgba(200,168,75,.14);
+  --ease:cubic-bezier(.4,0,.2,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--cream);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;line-height:1.12;margin:0;letter-spacing:-.01em}
+em{font-style:italic;color:var(--gold)}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+
+/* nav */
+nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:20px;padding:16px clamp(20px,5vw,48px);
+  background:rgba(12,25,40,.82);backdrop-filter:saturate(170%) blur(18px);-webkit-backdrop-filter:saturate(170%) blur(18px);
+  border-bottom:1px solid var(--rw)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:20px;letter-spacing:.01em}
+.nav-logo span{color:var(--gold);margin-left:.3em}
+.nav-links{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:14px;flex:1}
+.nav-links a{color:rgba(237,232,221,.72);transition:color .2s var(--ease)}
+.nav-links a:hover{color:var(--cream)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:2px;font-family:'DM Sans',sans-serif;
+  font-size:14px;font-weight:400;padding:13px 24px;border:1px solid transparent;cursor:pointer;transition:all .25s var(--ease);white-space:nowrap}
+.btn-primary{background:var(--gold);color:#0C1928;font-weight:500}
+.btn-primary:hover{background:#d8ba63}
+.btn-ghost{border-color:var(--gc);color:var(--gold)}
+.btn-ghost:hover{background:var(--ga)}
+.btn-sm{padding:9px 16px;font-size:13px}
+.ham{display:none;background:none;border:0;color:var(--cream);font-size:22px;cursor:pointer;padding:4px 8px}
+
+/* seções */
+section{padding:clamp(64px,9vw,120px) 0}
+.eyebrow{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.lead{font-size:clamp(16px,2vw,19px);color:rgba(237,232,221,.66);max-width:62ch;line-height:1.75}
+.alt{background:rgba(237,232,221,.022);border-top:1px solid var(--rw);border-bottom:1px solid var(--rw)}
+
+/* hero */
+#hero{padding-top:clamp(56px,8vw,92px)}
+.hero-title{font-size:clamp(38px,6.6vw,74px)}
+.hero-acts{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
+.hero-note{margin-top:26px;font-size:13px;color:rgba(237,232,221,.46)}
+
+/* grade de recursos */
+.grid{display:grid;gap:1px;background:var(--rw);border:1px solid var(--rw);margin-top:52px}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.cell{background:var(--bg);padding:clamp(24px,3vw,34px)}
+.cell h3{font-size:20px;margin-bottom:12px}
+.cell p{font-size:14.5px;color:rgba(237,232,221,.62);margin:0;line-height:1.72}
+.cell .num{font-family:'Playfair Display',serif;font-size:13px;color:var(--gold);display:block;margin-bottom:14px;letter-spacing:.1em}
+
+/* planos */
+.planos{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:52px;align-items:stretch}
+.plano{border:1px solid var(--rw);padding:clamp(24px,3vw,34px);display:flex;flex-direction:column;background:rgba(237,232,221,.014)}
+.plano.destaque{border-color:var(--gb);background:linear-gradient(170deg,var(--ga),transparent 62%)}
+.plano-nome{font-family:'Playfair Display',serif;font-size:22px;margin-bottom:6px}
+.plano-cap{font-size:13px;color:var(--gold);letter-spacing:.06em;text-transform:uppercase;margin-bottom:22px}
+.plano-preco{font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,42px);line-height:1;margin-bottom:4px}
+.plano-preco small{font-family:'DM Sans',sans-serif;font-size:14px;color:rgba(237,232,221,.55);font-weight:300}
+.plano ul{list-style:none;margin:26px 0 0;padding:0;font-size:14.5px;color:rgba(237,232,221,.66)}
+.plano li{padding:9px 0 9px 26px;position:relative;border-top:1px solid var(--rw)}
+.plano li:first-child{border-top:0}
+.plano li::before{content:'';position:absolute;left:4px;top:17px;width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
+.plano .btn{margin-top:26px;width:100%}
+.tudo-incluso{margin-top:44px;padding:26px clamp(20px,3vw,32px);border:1px solid var(--gb);background:var(--ga);display:flex;gap:18px;align-items:flex-start}
+.tudo-incluso svg{flex-shrink:0;margin-top:3px}
+.tudo-incluso p{margin:0;font-size:15px;color:rgba(237,232,221,.78);line-height:1.7}
+
+/* tabela comparativa */
+table{width:100%;border-collapse:collapse;margin-top:44px;font-size:14.5px}
+th,td{text-align:left;padding:15px 16px;border-bottom:1px solid var(--rw)}
+th{font-weight:500;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+td:first-child{color:rgba(237,232,221,.72)}
+td.n{text-align:center;font-variant-numeric:tabular-nums}
+th.n{text-align:center}
+
+/* faq */
+.faq{margin-top:44px;border-top:1px solid var(--rw)}
+.faq details{border-bottom:1px solid var(--rw)}
+.faq summary{padding:22px 0;cursor:pointer;font-size:17px;font-family:'Playfair Display',serif;list-style:none;display:flex;justify-content:space-between;gap:20px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';color:var(--gold);font-size:22px;font-family:'DM Sans',sans-serif;flex-shrink:0}
+.faq details[open] summary::after{content:'−'}
+.faq p{margin:0 0 24px;font-size:15px;color:rgba(237,232,221,.64);max-width:70ch}
+
+/* cta final */
+.cta-final{text-align:center}
+.cta-final h2{font-size:clamp(30px,4.6vw,52px);margin-bottom:22px}
+.cta-final .hero-acts{justify-content:center}
+
+footer{border-top:1px solid var(--rw);padding:38px 0;font-size:13px;color:rgba(237,232,221,.46);line-height:1.9}
+footer a{color:rgba(237,232,221,.6);text-decoration:underline;text-underline-offset:3px}
+
+@media(max-width:860px){
+  .nav-links{display:none}
+  .ham{display:block}
+  .grid-3{grid-template-columns:1fr}
+  .planos{grid-template-columns:1fr}
+  table{display:block;overflow-x:auto;white-space:nowrap}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="https://gruposiriuscapital.com.br">Sirius<span>Capital</span></a>
+  <ul class="nav-links">
+    <li><a href="#sistema">O sistema</a></li>
+    <li><a href="#motores">Estudos</a></li>
+    <li><a href="#planos">Planos</a></li>
+    <li><a href="#duvidas">Dúvidas</a></li>
+  </ul>
+  <a class="btn btn-ghost btn-sm" href="https://app.gruposiriuscapital.com.br">Entrar</a>
+  <a class="btn btn-primary btn-sm" href="https://wa.me/5571999347779?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20Sirius%20para%20o%20meu%20escrit%C3%B3rio." target="_blank" rel="noopener">Falar conosco</a>
+</nav>
+
+<section id="hero">
+  <div class="wrap">
+    <div class="eyebrow">Sirius para consultores</div>
+    <h1 class="hero-title">O sistema por trás<br>da <em>consultoria</em>.</h1>
+    <p class="lead" style="margin-top:28px">Não é um CRM genérico com o nome trocado. É a ferramenta que a Sirius Capital construiu para conduzir a vida financeira dos próprios clientes — diagnóstico, estudos, carteira, portal — e que agora o seu escritório pode usar.</p>
+    <div class="hero-acts">
+      <a class="btn btn-primary" href="#planos">Ver planos</a>
+      <a class="btn btn-ghost" href="https://wa.me/5571999347779?text=Ol%C3%A1%2C%20quero%20uma%20demonstra%C3%A7%C3%A3o%20do%20Sirius%20para%20o%20meu%20escrit%C3%B3rio." target="_blank" rel="noopener">Agendar demonstração</a>
+    </div>
+    <p class="hero-note">A partir de R$ 999 por mês · até 5 consultores · sem taxa de implantação</p>
+  </div>
+</section>
+
+<section id="sistema" class="alt">
+  <div class="wrap">
+    <div class="eyebrow">O que entra junto</div>
+    <h2 style="font-size:clamp(28px,4vw,44px)">Do primeiro contato<br>ao acompanhamento mensal.</h2>
+    <p class="lead" style="margin-top:24px">Cada peça existe porque faltou na prática. Nada aqui é recurso de catálogo.</p>
+
+    <div class="grid grid-3">
+      <div class="cell"><span class="num">01</span><h3>Diagnóstico</h3><p>A apresentação inicial que transforma um prospect em cliente: levantamento, projeção e proposta, prontos para a reunião.</p></div>
+      <div class="cell"><span class="num">02</span><h3>Carteira</h3><p>Patrimônio, investimentos e proteção de cada cliente num lugar só, com a composição e a evolução ao longo do tempo.</p></div>
+      <div class="cell"><span class="num">03</span><h3>Portal do cliente</h3><p>O cliente entra e vê a própria área — dashboard, objetivos, relatórios. Ele acompanha sem precisar te ligar.</p></div>
+      <div class="cell"><span class="num">04</span><h3>Funil e oportunidades</h3><p>Indicação, diagnóstico e ativo em um quadro. Produtos em negociação com valor e previsão de fechamento.</p></div>
+      <div class="cell"><span class="num">05</span><h3>Extratos e faturas</h3><p>Importação de extrato bancário e fatura de cartão, com categorização — em vez de digitar lançamento a lançamento.</p></div>
+      <div class="cell"><span class="num">06</span><h3>Escritórios e equipe</h3><p>Sócio enxerga o escritório inteiro, consultor enxerga a própria carteira. A separação é do banco de dados, não da tela.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="motores">
+  <div class="wrap">
+    <div class="eyebrow">Estudos</div>
+    <h2 style="font-size:clamp(28px,4vw,44px)">Quatro motores,<br>uma <em>metodologia</em>.</h2>
+    <p class="lead" style="margin-top:24px">Cada estudo sai pronto para apresentar ao cliente. O consultor revisa e assina — não monta planilha do zero.</p>
+
+    <div class="grid grid-3" style="grid-template-columns:repeat(2,1fr)">
+      <div class="cell"><span class="num">Alpha Centauri</span><h3>Planejamento patrimonial</h3><p>O horizonte longo: acumulação, sucessão e o que precisa existir para o plano fechar.</p></div>
+      <div class="cell"><span class="num">Polaris</span><h3>Investimentos</h3><p>Alocação, perfil e a distância entre a carteira que existe e a carteira que deveria existir.</p></div>
+      <div class="cell"><span class="num">Orion</span><h3>Proteção financeira</h3><p>O que acontece com a família se o cliente faltar — e quanto custa cobrir esse buraco.</p></div>
+      <div class="cell"><span class="num">Sirius</span><h3>Estudo integrado</h3><p>Os três anteriores costurados numa peça só, que é o que o cliente leva para casa.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="planos" class="alt">
+  <div class="wrap">
+    <div class="eyebrow">Planos</div>
+    <h2 style="font-size:clamp(28px,4vw,44px)">O sistema inteiro<br>em todos os planos.</h2>
+    <p class="lead" style="margin-top:24px">A diferença entre eles é quantos clientes você atende — não o que você pode fazer. Ninguém paga mais caro para desbloquear um botão.</p>
+
+    <div class="planos">
+      <div class="plano destaque">
+        <div class="plano-nome">Escritório</div>
+        <div class="plano-cap">até 15 clientes</div>
+        <div class="plano-preco">R$ 999<small>/mês</small></div>
+        <ul>
+          <li>Até 5 consultores</li>
+          <li>Até 15 clientes ativos</li>
+          <li>Todos os módulos e estudos</li>
+          <li>Portal do cliente incluso</li>
+        </ul>
+        <a class="btn btn-primary" href="https://wa.me/5571999347779?text=Ol%C3%A1%2C%20quero%20o%20plano%20Escrit%C3%B3rio%20do%20Sirius%20(at%C3%A9%2015%20clientes)." target="_blank" rel="noopener">Começar</a>
+      </div>
+      <div class="plano">
+        <div class="plano-nome">Crescimento</div>
+        <div class="plano-cap">até 30 clientes</div>
+        <div class="plano-preco">R$ 1.499<small>/mês</small></div>
+        <ul>
+          <li>Até 10 consultores</li>
+          <li>Até 30 clientes ativos</li>
+          <li>Todos os módulos e estudos</li>
+          <li>Portal do cliente incluso</li>
+        </ul>
+        <a class="btn btn-ghost" href="https://wa.me/5571999347779?text=Ol%C3%A1%2C%20quero%20o%20plano%20Crescimento%20do%20Sirius%20(at%C3%A9%2030%20clientes)." target="_blank" rel="noopener">Começar</a>
+      </div>
+      <div class="plano">
+        <div class="plano-nome">Escala</div>
+        <div class="plano-cap">até 50 clientes</div>
+        <div class="plano-preco">R$ 1.999<small>/mês</small></div>
+        <ul>
+          <li>Até 15 consultores</li>
+          <li>Até 50 clientes ativos</li>
+          <li>Todos os módulos e estudos</li>
+          <li>Portal do cliente incluso</li>
+        </ul>
+        <a class="btn btn-ghost" href="https://wa.me/5571999347779?text=Ol%C3%A1%2C%20quero%20o%20plano%20Escala%20do%20Sirius%20(at%C3%A9%2050%20clientes)." target="_blank" rel="noopener">Começar</a>
+      </div>
+    </div>
+
+    <div class="tudo-incluso">
+      <svg width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#C8A84B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="5.5"/><path d="m5.8 8 1.6 1.6 2.8-3.2"/></svg>
+      <p>Diagnóstico, os quatro estudos, carteira, funil, portal do cliente, importação de extratos e a estrutura de escritórios estão em todos os planos. Passou do limite de clientes, você sobe de plano — e nada muda de lugar.</p>
+    </div>
+
+    <table>
+      <thead><tr><th>&nbsp;</th><th class="n">Escritório</th><th class="n">Crescimento</th><th class="n">Escala</th></tr></thead>
+      <tbody>
+        <tr><td>Mensalidade</td><td class="n">R$ 999</td><td class="n">R$ 1.499</td><td class="n">R$ 1.999</td></tr>
+        <tr><td>Clientes ativos</td><td class="n">15</td><td class="n">30</td><td class="n">50</td></tr>
+        <tr><td>Consultores</td><td class="n">5</td><td class="n">10</td><td class="n">15</td></tr>
+        <tr><td>Módulos e estudos</td><td class="n">todos</td><td class="n">todos</td><td class="n">todos</td></tr>
+        <tr><td>Portal do cliente</td><td class="n">incluso</td><td class="n">incluso</td><td class="n">incluso</td></tr>
+        <tr><td>Implantação</td><td class="n">sem custo</td><td class="n">sem custo</td><td class="n">sem custo</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="duvidas">
+  <div class="wrap">
+    <div class="eyebrow">Dúvidas</div>
+    <h2 style="font-size:clamp(28px,4vw,44px)">Antes de perguntar.</h2>
+
+    <div class="faq">
+      <details open>
+        <summary>O que conta como cliente ativo?</summary>
+        <p>Cliente com acompanhamento em andamento no sistema. Prospect em diagnóstico e indicação ainda não convertida não entram na conta.</p>
+      </details>
+      <details>
+        <summary>Meus clientes precisam usar o app?</summary>
+        <p>Não. O portal do cliente é opcional. Você pode trabalhar só do lado do consultor e liberar o acesso de quem quiser acompanhar.</p>
+      </details>
+      <details>
+        <summary>Dá para trazer a base que eu já tenho?</summary>
+        <p>Sim. O sistema importa extrato bancário e fatura de cartão, e a carteira pode ser cadastrada com o histórico que você já mantém hoje.</p>
+      </details>
+      <details>
+        <summary>Meus dados ficam separados dos de outro escritório?</summary>
+        <p>Ficam. A separação é feita no banco de dados, por escritório e por responsável — não é um filtro de tela que alguém contorna.</p>
+      </details>
+      <details>
+        <summary>Passei do limite de clientes no meio do mês.</summary>
+        <p>Você sobe de plano e continua de onde parou. Nada é apagado nem bloqueado sem aviso.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="alt cta-final">
+  <div class="wrap">
+    <h2>Veja rodando com<br>um cliente <em>seu</em>.</h2>
+    <p class="lead" style="margin:0 auto 6px">Uma conversa de trinta minutos, com o sistema aberto e um caso real do seu escritório. Sem apresentação de slides.</p>
+    <div class="hero-acts">
+      <a class="btn btn-primary" href="https://wa.me/5571999347779?text=Ol%C3%A1%2C%20quero%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20do%20Sirius." target="_blank" rel="noopener">Agendar demonstração</a>
+      <a class="btn btn-ghost" href="https://app.gruposiriuscapital.com.br">Já sou cliente, entrar</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <strong style="color:rgba(237,232,221,.72);font-weight:500">SIRIUS CAPITAL LTDA</strong> · CNPJ 29.905.371/0001-02 · Lauro de Freitas/BA<br>
+    <a href="https://gruposiriuscapital.com.br">Site</a> ·
+    <a href="para-voce.html">Sirius para você</a> ·
+    <a href="https://app.gruposiriuscapital.com.br">Entrar no sistema</a> ·
+    <a href="https://wa.me/5571999347779" target="_blank" rel="noopener">WhatsApp</a> ·
+    <a href="politica-de-privacidade.html">Privacidade</a>
+  </div>
+</footer>
+
+</body>
+</html>
