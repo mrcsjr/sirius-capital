@@ -97,12 +97,16 @@ footer a{color:rgba(237,232,221,.6);text-decoration:underline;text-underline-off
   .grid{grid-template-columns:1fr}
   .planos{grid-template-columns:1fr}
 }
+
+.logo-img{display:block;height:42px;width:auto}
+.foot-logo .logo-img{height:56px;margin-bottom:6px}
+@media(max-width:600px){.logo-img{height:36px}}
 </style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo" href="https://gruposiriuscapital.com.br">Sirius<span>Capital</span></a>
+  <a class="nav-logo" href="/" aria-label="Sirius Capital, início"><img class="logo-img" src="/img/logo-sirius.png" alt="Sirius Capital" width="294" height="162"></a>
   <ul class="nav-links">
     <li><a href="#app">O app</a></li>
     <li><a href="#planos">Planos</a></li>

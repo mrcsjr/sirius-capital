@@ -94,11 +94,15 @@ footer a{color:rgba(237,232,221,.6);text-decoration:underline;text-underline-off
   .planos{grid-template-columns:1fr}
 }
 .pol h2{font-size:22px;margin:40px 0 12px}.pol p{font-size:16px;color:rgba(237,232,221,.72);margin:0 0 14px}.pol strong{font-weight:500;color:var(--cream)}.pol ul{margin:0 0 14px;padding-left:20px;color:rgba(237,232,221,.72);font-size:16px}.pol li{margin-bottom:8px}.pol a{color:var(--gold);text-decoration:underline;text-underline-offset:3px}
+
+.logo-img{display:block;height:42px;width:auto}
+.foot-logo .logo-img{height:56px;margin-bottom:6px}
+@media(max-width:600px){.logo-img{height:36px}}
 </style>
 </head>
 <body>
 <nav>
-  <a class="nav-logo" href="/">Sirius<span>Capital</span></a>
+  <a class="nav-logo" href="/" aria-label="Sirius Capital, início"><img class="logo-img" src="/img/logo-sirius.png" alt="Sirius Capital" width="294" height="162"></a>
   <ul class="nav-links"></ul>
   <a class="btn btn-ghost btn-sm" href="/">Voltar ao site</a>
 </nav>

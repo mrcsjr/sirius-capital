@@ -126,12 +126,16 @@ footer a{color:rgba(237,232,221,.6);text-decoration:underline;text-underline-off
 .lista-2026 li::before{content:'';position:absolute;left:4px;top:26px;width:6px;height:6px;background:var(--gold);transform:rotate(45deg)}
 .foot-legal{display:block;margin-top:10px;font-size:12px;color:rgba(237,232,221,.38);max-width:80ch}
 @media(max-width:860px){.calc{grid-template-columns:1fr}}
+
+.logo-img{display:block;height:42px;width:auto}
+.foot-logo .logo-img{height:56px;margin-bottom:6px}
+@media(max-width:600px){.logo-img{height:36px}}
 </style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo" href="/">Sirius<span>Capital</span></a>
+  <a class="nav-logo" href="/" aria-label="Sirius Capital, início"><img class="logo-img" src="/img/logo-sirius.png" alt="Sirius Capital" width="294" height="162"></a>
   <ul class="nav-links">
     <li><a href="#perdeu">O que você perdeu</a></li>
     <li><a href="#calculadora">Calculadora</a></li>
