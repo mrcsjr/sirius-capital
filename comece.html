@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Comece pela análise · Sirius Capital</title>
+<meta name="description" content="Planejamento financeiro para quem ganha bem e quer transformar renda em patrimônio. Pessoa e empresa no mesmo plano. Salvador e Lauro de Freitas.">
+<meta property="og:title" content="Você ganha bem. Por que o patrimônio não cresce?">
+<meta property="og:description" content="Planejamento financeiro independente da Sirius Capital. Pessoa e empresa no mesmo plano, sem produtos financeiros próprios.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://gruposiriuscapital.com.br/img/logo-sirius.png">
+<meta name="theme-color" content="#070a10">
+<link rel="icon" href="/img/logo-sirius.png">
+<link rel="canonical" href="https://gruposiriuscapital.com.br/comece">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#070a10;--navy-2:#0b1019;--navy-3:#111826;
+    --cream:#f1ede4;--cream-2:#e9e3d6;
+    --gold:#c9a84c;--gold-2:#e2c76f;--gold-ink:#14100a;
+    --fg:#f3efe6;--fg-2:rgba(243,239,230,.78);--fg-3:rgba(243,239,230,.62);
+    --ink:#0b1019;--ink-2:rgba(11,16,25,.74);--ink-3:rgba(11,16,25,.64);
+    --line-d:rgba(243,239,230,.12);--line-l:rgba(11,16,25,.13);
+    --display:"Playfair Display",Georgia,serif;
+    --body:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --ease:cubic-bezier(.16,1,.3,1);
+    color-scheme:dark;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--navy);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit}
+  .wrap{width:min(1080px,100% - 32px);margin-inline:auto}
+  @media(min-width:700px){.wrap{width:min(1080px,100% - 64px)}}
+  :focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:3px}
+  em{font-style:italic;color:var(--gold-2);font-weight:500}
+
+  section{padding-block:clamp(64px,11vw,112px);position:relative}
+  .t-dark2{background:var(--navy-2)}
+  .t-light{background:var(--cream);color:var(--ink)}
+  .t-light em{color:#6e5414}
+
+  h1,h2,h3{font-family:var(--display);font-weight:500;letter-spacing:-.01em;line-height:1.1;text-wrap:balance}
+  h1{font-size:clamp(38px,9vw,72px)}
+  h2{font-size:clamp(30px,6vw,48px);margin-bottom:18px}
+  h3{font-size:21px;line-height:1.25;margin-bottom:6px}
+  .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;
+    display:flex;align-items:center;gap:12px;margin-bottom:20px}
+  .eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+  .t-light .eyebrow{color:#6e5414}
+  .lede{font-size:18px;color:var(--fg-2);max-width:56ch}
+  .t-light .lede{color:var(--ink-2)}
+
+  /* topo */
+  .topo{padding-top:calc(20px + env(safe-area-inset-top,0px))}
+  .logo{display:inline-block;line-height:0}
+  .logo img{display:block;height:44px;width:auto}
+  @media(min-width:700px){.logo img{height:52px}}
+
+  /* hero */
+  .hero{padding-top:clamp(48px,10vw,96px);padding-bottom:clamp(64px,10vw,104px);overflow:hidden;
+    background:radial-gradient(900px 480px at 85% -10%,rgba(201,168,76,.10),transparent 62%),var(--navy)}
+  .hero .orb{position:absolute;right:-120px;top:40px;width:420px;height:420px;opacity:.05;pointer-events:none;color:var(--gold)}
+  .hero h1{margin-bottom:22px;max-width:15ch}
+  .hero .lede{margin-bottom:32px}
+  .cta-bloco{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:15px 26px;
+    border-radius:4px;font-weight:700;font-size:16.5px;text-decoration:none;border:0;cursor:pointer;
+    transition:transform .36s var(--ease),box-shadow .36s var(--ease),filter .18s}
+  .btn-gold{background:var(--gold);color:var(--gold-ink)}
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 10px 24px -14px rgba(0,0,0,.6)}
+  .btn-gold:active{transform:translateY(0)}
+  .btn .arr{transition:transform .36s var(--ease)}
+  .btn:hover .arr{transform:translateX(4px)}
+  .micro{font-size:14px;color:var(--fg-3)}
+  .t-light .micro{color:var(--ink-3)}
+  .fatos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;border-top:1px solid var(--line-d);margin-top:52px;padding-top:4px}
+  .fatos div{padding:14px 0}
+  .fatos b{display:block;font-family:var(--display);font-weight:500;font-size:clamp(22px,5vw,30px);color:var(--fg);font-variant-numeric:tabular-nums}
+  .fatos span{font-size:13px;color:var(--fg-3);line-height:1.35;display:block}
+
+  /* dores */
+  .dores{list-style:none;display:grid;gap:0;margin-top:28px;border-top:1px solid var(--line-d)}
+  .dores li{display:grid;grid-template-columns:38px 1fr;gap:10px;padding:18px 0;border-bottom:1px solid var(--line-d);font-size:18px;color:var(--fg)}
+  .dores li span{font-size:12px;letter-spacing:.12em;color:var(--gold);padding-top:5px;font-variant-numeric:tabular-nums}
+  @media(min-width:800px){.dores{grid-template-columns:1fr 1fr;column-gap:48px}}
+
+  /* plano */
+  .itens{display:grid;gap:14px;margin-top:32px}
+  @media(min-width:760px){.itens{grid-template-columns:1fr 1fr}}
+  .item{border:1px solid var(--line-l);border-radius:2px;padding:22px 20px;background:rgba(255,255,255,.35)}
+  .item p{color:var(--ink-2);font-size:16px}
+  .nota{margin-top:22px;font-size:15px;color:var(--ink-2);max-width:62ch}
+
+  /* passos */
+  .passos{list-style:none;display:grid;gap:0;margin-top:34px;counter-reset:p}
+  .passo{display:grid;grid-template-columns:56px 1fr;gap:6px 14px;padding:24px 0;border-top:1px solid var(--line-d);position:relative}
+  .passo:last-child{border-bottom:1px solid var(--line-d)}
+  .passo .n{font-family:var(--display);font-size:34px;color:var(--gold);line-height:1;grid-row:span 2}
+  .passo .dur{display:inline-block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg-3);font-weight:600;margin-bottom:4px}
+  .passo p{color:var(--fg-2);font-size:16px;max-width:58ch}
+  @media(min-width:860px){
+    .passos{grid-template-columns:repeat(3,1fr);gap:28px}
+    .passo,.passo:last-child{grid-template-columns:1fr;border:0;border-top:1px solid var(--gold);padding-top:22px}
+    .passo .n{grid-row:auto;margin-bottom:10px}
+  }
+  .aviso{margin-top:24px;font-size:15px;color:var(--fg-2);border-left:2px solid var(--gold);padding:8px 0 8px 16px;max-width:62ch}
+
+  /* preço */
+  .preco-grid{display:grid;gap:28px;margin-top:8px}
+  @media(min-width:860px){.preco-grid{grid-template-columns:1fr 1fr;gap:56px;align-items:start}}
+  .valor{border:1px solid var(--line-d);background:var(--navy-3);padding:26px 22px;border-radius:2px}
+  .valor .rot{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-3);font-weight:600}
+  .valor .num{font-family:var(--display);font-size:clamp(40px,10vw,56px);line-height:1.05;margin:8px 0 6px;font-variant-numeric:tabular-nums}
+  .valor .num small{font-family:var(--body);font-size:16px;color:var(--fg-2);font-weight:500;margin-right:6px;vertical-align:.6em}
+  .valor p{color:var(--fg-2);font-size:15.5px}
+  .valor .ex{margin-top:16px;padding-top:16px;border-top:1px solid var(--line-d);font-size:15px;color:var(--fg-2)}
+  .valor .ex b{color:var(--fg);font-variant-numeric:tabular-nums}
+  .como-ganha h3{margin-bottom:10px}
+  .como-ganha p{color:var(--fg-2);font-size:16px;margin-bottom:12px}
+
+  /* perfil */
+  .perfil{display:grid;gap:12px;margin-top:28px}
+  @media(min-width:760px){.perfil{grid-template-columns:repeat(3,1fr)}}
+  .perfil div{border-top:1px solid var(--line-l);padding-top:16px}
+  .perfil b{display:block;font-family:var(--display);font-weight:500;font-size:22px;margin-bottom:4px}
+  .perfil span{color:var(--ink-2);font-size:15.5px}
+
+  /* depoimentos */
+  .deps{display:grid;gap:16px;margin-top:32px}
+  @media(min-width:860px){.deps{grid-template-columns:repeat(3,1fr)}}
+  .dep{border:1px solid var(--line-d);padding:24px 22px;border-radius:2px;background:var(--navy)}
+  .dep blockquote{font-family:var(--display);font-size:19px;line-height:1.45;color:var(--fg);margin-bottom:16px}
+  .dep cite{font-style:normal;font-size:14px;color:var(--fg-3)}
+  .dep cite b{color:var(--fg-2);font-weight:600}
+
+  /* final */
+  .final{text-align:left;background:radial-gradient(800px 420px at 15% 110%,rgba(201,168,76,.09),transparent 60%),var(--navy)}
+  .final h2{max-width:18ch}
+  .final .lede{margin-bottom:30px}
+  .alt{margin-top:22px;font-size:15px;color:var(--fg-3)}
+  .alt a{color:var(--gold-2);font-weight:600;text-underline-offset:3px}
+
+  footer{border-top:1px solid var(--line-d);padding:28px 0 calc(110px + env(safe-area-inset-bottom,0px));font-size:12.5px;color:var(--fg-3);line-height:1.6}
+  @media(min-width:860px){footer{padding-bottom:40px}}
+  footer p+p{margin-top:8px}
+  footer a{color:var(--fg-2)}
+
+  /* barra fixa no celular */
+  .fixa{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));
+    background:rgba(7,10,16,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line-d);
+    transform:translateY(110%);transition:transform .36s var(--ease)}
+  .fixa.on{transform:none}
+  .fixa .btn{width:100%}
+  @media(min-width:860px){.fixa{display:none}}
+  /* o botão flutuante da Vega (Snippet injection do Netlify) cobriria a barra fixa no celular; aqui a Vega fica no fim da página */
+  @media(max-width:859px){#vega-bt{display:none!important}}
+
+  /* entrada suave: tudo visível sem JS; só esconde o que está abaixo da dobra */
+  .js [data-r].pre{opacity:0;transform:translateY(22px)}
+  [data-r]{transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:var(--d,0s)}
+  @media(prefers-reduced-motion:reduce){
+    [data-r],.fixa,.btn,.btn .arr{transition:none!important}
+    .js [data-r].pre{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+<header class="topo wrap">
+  <a class="logo" href="https://gruposiriuscapital.com.br"><img src="/img/logo-sirius.png" alt="Sirius Capital" width="294" height="162"></a>
+</header>
+
+<main>
+  <section class="hero" id="topo">
+    <svg class="orb" viewBox="0 0 200 200" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width=".6"><circle cx="100" cy="100" r="98"/><circle cx="100" cy="100" r="70"/><circle cx="100" cy="100" r="42"/></g><path fill="currentColor" d="M100 76l4 20 20 4-20 4-4 20-4-20-20-4 20-4z"/></svg>
+    <div class="wrap">
+      <p class="eyebrow">Salvador e Lauro de Freitas</p>
+      <h1>Você ganha bem. Por que o patrimônio <em>não cresce?</em></h1>
+      <p class="lede">A Sirius Capital organiza a sua vida financeira num plano só: orçamento, reserva, proteção, investimentos e aposentadoria. Para quem é PJ ou empresário, a empresa entra no mesmo plano.</p>
+      <div class="cta-bloco">
+        <a class="btn btn-gold js-cta" href="https://app.gruposiriuscapital.com.br/agendar?origem=instagram">Ver se faz sentido para mim <span class="arr" aria-hidden="true">→</span></a>
+        <span class="micro">Um minuto de perguntas. Sem compromisso.</span>
+      </div>
+      <div class="fatos" role="list">
+        <div role="listitem"><b>PF + PJ</b><span>no mesmo plano</span></div>
+        <div role="listitem"><b>Zero</b><span>produtos financeiros próprios</span></div>
+        <div role="listitem"><b>App</b><span>para acompanhar o mês</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="t-dark2">
+    <div class="wrap">
+      <p class="eyebrow" data-r>01 — Você se identifica?</p>
+      <h2 data-r>O dinheiro entra. E some.</h2>
+      <ul class="dores">
+        <li data-r><span>01</span>Você ganha bem, mas no fim do mês não sobra.</li>
+        <li data-r style="--d:.06s"><span>02</span>Sua renda subiu e o seu patrimônio não acompanhou.</li>
+        <li data-r style="--d:.12s"><span>03</span>As contas da pessoa e da empresa se misturam.</li>
+        <li data-r style="--d:.18s"><span>04</span>Você investe sem saber se está no caminho do que quer.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="t-light">
+    <div class="wrap">
+      <p class="eyebrow" data-r>02 — O que você recebe</p>
+      <h2 data-r>Um plano feito para a <em>sua</em> renda.</h2>
+      <p class="lede" data-r>Não é planilha pronta nem dica genérica. É o seu caso, com os seus números, acompanhado ao longo do ano.</p>
+      <div class="itens">
+        <div class="item" data-r><h3>Para onde vai o dinheiro</h3><p>Orçamento e fluxo de caixa a partir dos seus extratos, com o que dá para ajustar sem mudar a sua vida.</p></div>
+        <div class="item" data-r style="--d:.06s"><h3>Reserva e proteção</h3><p>Quanto guardar para imprevistos e como proteger a família e a renda se algo der errado.</p></div>
+        <div class="item" data-r style="--d:.12s"><h3>Investimentos por objetivo</h3><p>A divisão dos investimentos de acordo com o seu perfil e o seu prazo. Os investimentos ficam no seu nome.</p></div>
+        <div class="item" data-r style="--d:.18s"><h3>Independência e sucessão</h3><p>Quanto você precisa para parar de depender do trabalho, quando, e como o patrimônio passa para a família.</p></div>
+      </div>
+      <p class="nota" data-r>Entre uma reunião e outra, você acompanha tudo no app da Sirius: conecte o banco pelo Open Finance, ou importe o extrato e a fatura, e o mês se organiza sozinho.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow" data-r>03 — Como funciona</p>
+      <h2 data-r>Três passos. Você sabe o que vem antes de começar.</h2>
+      <ol class="passos">
+        <li class="passo" data-r><span class="n">1</span><div><span class="dur">Ligação · 15 min</span><h3>A gente se conhece</h3></div><p>Um dos nossos consultores liga para você, entende o seu momento e marca a análise.</p></li>
+        <li class="passo" data-r style="--d:.08s"><span class="n">2</span><div><span class="dur">Análise · 1 hora, por vídeo</span><h3>Olhamos os seus números</h3></div><p>Com os extratos dos últimos 3 meses e a fatura do cartão, montamos o diagnóstico da sua vida financeira.</p></li>
+        <li class="passo" data-r style="--d:.16s"><span class="n">3</span><div><span class="dur">Proposta · 30 min</span><h3>Você decide</h3></div><p>Mostramos o plano, o que muda e o valor para o seu caso. Se fizer sentido, começamos.</p></li>
+      </ol>
+      <p class="aviso" data-r>Se as suas respostas já deixarem o caso claro, você pula a ligação e marca direto a análise.</p>
+    </div>
+  </section>
+
+  <section class="t-dark2">
+    <div class="wrap">
+      <p class="eyebrow" data-r>04 — Investimento</p>
+      <h2 data-r>Um valor feito para a <em>sua realidade.</em></h2>
+      <div class="preco-grid">
+        <div class="valor" data-r>
+          <span class="rot">Consultoria</span>
+          <div class="num">Sob medida</div>
+          <p>O valor da consultoria parte da sua renda e do seu momento, e é pensado para caber no seu orçamento. Planejamento não pode pesar no mês que ele veio organizar.</p>
+          <p class="ex">A ligação e a análise não custam nada. Você conhece o valor depois que entendemos o seu caso, e decide sem pressa.</p>
+        </div>
+        <div class="como-ganha" data-r style="--d:.08s">
+          <h3>Como a Sirius ganha dinheiro</h3>
+          <p>Você paga pelo plano e pelo acompanhamento. Se investir pela Mont Asset, gestora parceira, a Sirius também recebe parte da taxa de gestão, em contrato separado.</p>
+          <p>Em consórcio, financiamento e seguros, podemos receber da instituição uma remuneração por indicação.</p>
+          <p>Não temos produtos financeiros próprios. Você sabe de tudo isso antes de assinar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="t-light">
+    <div class="wrap">
+      <p class="eyebrow" data-r>05 — Para quem é</p>
+      <h2 data-r>Para quem já ganha bem e quer ver isso <em>virar patrimônio.</em></h2>
+      <div class="perfil">
+        <div data-r><b>O problema é gestão, não renda</b><span>O dinheiro entra, mas falta direção para ele.</span></div>
+        <div data-r style="--d:.06s"><b>R$ 100 mil ou mais investidos</b><span>e quer saber se estão no caminho certo.</span></div>
+        <div data-r style="--d:.12s"><b>CLT, PJ ou empresário</b><span>pessoa e empresa entram no mesmo plano.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow" data-r>06 — Quem já passou por aqui</p>
+      <h2 data-r>O que os clientes dizem.</h2>
+      <div class="deps">
+        <figure class="dep" data-r><blockquote>Eu vivia no piloto automático com o dinheiro. Quando sentei com a Sirius, percebi o quanto estava deixando escapar. Hoje tenho controle de verdade e durmo melhor.</blockquote><figcaption><cite><b>Ricardo A.</b> · Empresário, Salvador</cite></figcaption></figure>
+        <figure class="dep" data-r style="--d:.06s"><blockquote>A Sirius me ajudou a começar do zero, com um plano que faz sentido pra minha vida, não pra vida de outra pessoa.</blockquote><figcaption><cite><b>Carolina M.</b> · Professora, Lauro de Freitas</cite></figcaption></figure>
+        <figure class="dep" data-r style="--d:.12s"><blockquote>Já fui a outros consultores e sempre saí com a sensação de que estavam me vendendo algo. Aqui a conversa era sobre mim, sobre o que eu quero de verdade.</blockquote><figcaption><cite><b>Felipe T.</b> · Médico, Salvador</cite></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="final t-dark2" id="final">
+    <div class="wrap">
+      <p class="eyebrow" data-r>07 — Comece</p>
+      <h2 data-r>Renda é o ponto de partida. Patrimônio é a <em>trajetória.</em></h2>
+      <p class="lede" data-r>Responda algumas perguntas. Se fizer sentido para o seu momento, você já escolhe o horário.</p>
+      <div class="cta-bloco" data-r>
+        <a class="btn btn-gold js-cta" href="https://app.gruposiriuscapital.com.br/agendar?origem=instagram">Ver se faz sentido para mim <span class="arr" aria-hidden="true">→</span></a>
+        <span class="micro">Um minuto de perguntas. Sem compromisso.</span>
+      </div>
+      <p class="alt" data-r>Prefere conversar antes? <a class="js-wa" href="https://wa.me/557181499179?text=Oi%2C%20Vega!%20Vim%20pelo%20Instagram%20da%20Sirius.">Fale com a Vega no WhatsApp</a>, a assistente da Sirius.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>SIRIUS CAPITAL LTDA · CNPJ 29.905.371/0001-02 · Lauro de Freitas/BA · <a href="https://gruposiriuscapital.com.br">gruposiriuscapital.com.br</a> · <a href="https://www.instagram.com/siriuscapital.br/">@siriuscapital.br</a></p>
+    <p>Investimentos geridos pela Mont Asset, gestora parceira. A Sirius Capital não tem produtos financeiros próprios. Este material tem caráter informativo e não constitui recomendação de investimento.</p>
+  </div>
+</footer>
+
+<div class="fixa" id="fixa" aria-hidden="true">
+  <a class="btn btn-gold js-cta" href="https://app.gruposiriuscapital.com.br/agendar?origem=instagram" tabindex="-1">Ver se faz sentido para mim <span class="arr" aria-hidden="true">→</span></a>
+</div>
+
+<script>
+(function(){
+  // Origem: ?origem= ou utm_source desta página segue para o formulário (padrão: instagram).
+  var q = new URLSearchParams(location.search);
+  var origem = (q.get('origem') || q.get('utm_source') || 'instagram').replace(/[^\w.-]/g,'').slice(0,40) || 'instagram';
+  document.querySelectorAll('.js-cta').forEach(function(a){ a.href = 'https://app.gruposiriuscapital.com.br/agendar?origem=' + encodeURIComponent(origem); });
+
+  // Barra fixa no celular: aparece depois que o botão do topo sai da tela e some no fim da página.
+  var fixa = document.getElementById('fixa');
+  var topoBtn = document.querySelector('.hero .js-cta');
+  var final = document.getElementById('final');
+  if ('IntersectionObserver' in window) {
+    var heroFora = false, finalDentro = false;
+    function upd(){ var on = heroFora && !finalDentro; fixa.classList.toggle('on', on); fixa.setAttribute('aria-hidden', on ? 'false' : 'true'); fixa.querySelector('a').tabIndex = on ? 0 : -1; }
+    new IntersectionObserver(function(e){ heroFora = !e[0].isIntersecting && e[0].boundingClientRect.top < 0; upd(); }).observe(topoBtn);
+    new IntersectionObserver(function(e){ finalDentro = e[0].isIntersecting; upd(); }, {rootMargin:'0px 0px -20% 0px'}).observe(final);
+
+    // Entrada suave só para o que começa abaixo da dobra.
+    var reduz = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduz) {
+      document.documentElement.classList.add('js');
+      var els = document.querySelectorAll('[data-r]');
+      var io = new IntersectionObserver(function(es){ es.forEach(function(x){ if (x.isIntersecting) { x.target.classList.remove('pre'); io.unobserve(x.target); } }); }, {rootMargin:'0px 0px -8% 0px'});
+      els.forEach(function(el){ if (el.getBoundingClientRect().top > innerHeight) { el.classList.add('pre'); io.observe(el); } });
+      // Rede de segurança: nada fica escondido depois de 4s.
+      setTimeout(function(){ els.forEach(function(el){ el.classList.remove('pre'); }); }, 4000);
+    }
+  }
+})();
+</script>
+</body>
+</html>
