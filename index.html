@@ -289,6 +289,20 @@ section{position:relative;padding-block:clamp(5rem,10vw,8.5rem)}
 .device .r b{font-weight:600;font-variant-numeric:tabular-nums}
 .device .ex{position:absolute;top:-10px;right:14px;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;background:var(--gold);color:var(--ink);padding:.25rem .55rem;border-radius:3px;font-weight:600}
 
+/* Trabalhe conosco */
+.vagas .grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+@media (max-width:960px){.vagas .grid{grid-template-columns:1fr;gap:2.4rem}}
+.vagas .areas{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.6rem}
+.vagas .areas span{font-size:.8rem;padding:.4rem .8rem;border:1px solid var(--line-l);border-radius:999px;color:var(--ink-muted)}
+.vagas ol{list-style:none;margin:0;padding:0;counter-reset:v}
+.vagas li{counter-increment:v;display:grid;grid-template-columns:2.4rem 1fr;gap:.2rem 1rem;padding:1.15rem 0;border-bottom:1px solid var(--line-l)}
+.vagas li::before{content:counter(v,decimal-leading-zero);grid-row:span 2;font-size:.72rem;letter-spacing:.12em;color:var(--gold-dim,var(--gold));font-weight:600;padding-top:.3rem}
+.vagas li h3{font-size:1.15rem}
+.vagas li p{color:var(--ink-muted);font-size:.95rem}
+.vagas .como{margin-top:1.8rem;font-size:.95rem;color:var(--ink-muted)}
+.vagas .como b{color:var(--ink);font-weight:600}
+.vagas .note{font-size:.8rem;color:var(--ink-faint);margin-top:1.2rem;max-width:60ch}
+
 /* Por que */
 .whys{display:grid;grid-template-columns:repeat(5,1fr);gap:1.5rem}
 @media (max-width:1040px){.whys{grid-template-columns:repeat(2,1fr)}}
@@ -615,13 +629,14 @@ html.cur-on input,html.cur-on textarea{cursor:text}
   <a href="#preco">Como funciona <span>04</span></a>
   <a href="#plataforma">A plataforma <span>05</span></a>
   <a href="#diagnostico">Diagnóstico gratuito <span>06</span></a>
-  <a href="#contato">Contato <span>07</span></a>
+  <a href="#trabalhe">Trabalhe conosco <span>07</span></a>
+  <a href="#contato">Contato <span>08</span></a>
   <p class="menu-lbl">Sirius Capital</p>
   <a href="/">Início <span>•</span></a>
   <a href="/para-quem-virou-pj">Virou PJ? <span>↗</span></a>
   <a href="/nexus">NEXUS <span>↗</span></a>
   <a href="/para-voce">Sirius para você <span>↗</span></a>
-  <a href="/para-consultores">Sirius para consultores <span>↗</span></a>
+  <a href="/#trabalhe">Trabalhe conosco <span>•</span></a>
   <a href="/#diagnostico">Diagnóstico gratuito <span>•</span></a>
   <div class="row">
     <a class="btn btn-ghost" href="https://app.gruposiriuscapital.com.br">Entrar no sistema</a>
@@ -869,15 +884,14 @@ html.cur-on input,html.cur-on textarea{cursor:text}
       <div data-reveal>
         <p class="eyebrow">06 — A plataforma</p>
         <h2>Seu plano não para quando a reunião acaba.</h2>
-        <p class="lede muted" style="margin:1.4rem 0 1.2rem">Entre um encontro e outro, o trabalho continua num sistema que a Sirius construiu para uso próprio e que hoje também sustenta o escritório de outros consultores.</p>
+        <p class="lede muted" style="margin:1.4rem 0 1.2rem">Entre um encontro e outro, o trabalho continua num sistema que a Sirius construiu para acompanhar cada cliente de perto.</p>
         <div class="feat">
           <div><h3>O app</h3><p>Importe o extrato do banco e a fatura do cartão e o mês se organiza sozinho. Patrimônio, proteção, objetivos e, para quem é PJ, a empresa, lado a lado.</p></div>
           <div><h3>O portal do cliente</h3><p>Você acompanha o próprio plano sem depender de e-mail ou de uma ligação: painel, relatório mensal e o que ficou combinado, sempre à mão.</p></div>
-          <div><h3>O sistema do consultor</h3><p>Carteira, diagnóstico e os quatro estudos da metodologia: Alpha Centauri, Polaris, Orion e Sirius. É o que o seu consultor usa para conduzir o caso.</p></div>
+          <div><h3>O sistema do consultor</h3><p>Carteira, diagnóstico e os quatro estudos da metodologia: Alpha Centauri, Polaris, Orion e Sirius. É o que o seu consultor Sirius usa para conduzir o caso.</p></div>
         </div>
         <div style="display:flex;gap:1.2rem;flex-wrap:wrap;margin-top:2rem;align-items:center">
           <a class="btn btn-gold" href="/para-voce">Conhecer o app</a>
-          <a class="link" href="/para-consultores">Sou consultor, quero o sistema <span class="arr">→</span></a>
         </div>
       </div>
       <div data-reveal="scale" style="--d:.15s">
@@ -970,11 +984,37 @@ html.cur-on input,html.cur-on textarea{cursor:text}
   </div>
 </section>
 
+<section class="vagas" data-tone="light" id="trabalhe">
+  <div class="wrap">
+    <div class="grid">
+      <div data-reveal>
+        <p class="eyebrow">10 — Trabalhe conosco</p>
+        <h2>Quer construir planos com a <em>Sirius?</em></h2>
+        <p class="lede muted" style="margin-top:1.6rem">Procuramos gente que gosta de gente e de números, e que prefere explicar a vender. Mesmo sem vaga aberta, lemos todo currículo que chega e voltamos a falar quando surgir uma oportunidade com o seu perfil.</p>
+        <div class="areas" aria-label="Áreas"><span>Consultoria financeira</span><span>Atendimento ao cliente</span><span>Comercial</span><span>Operações</span><span>Estágio</span></div>
+        <p class="como">Envie para <b>admin@gruposiriuscapital.com.br</b> com o assunto <b>Trabalhe conosco</b> e a área que te interessa.</p>
+        <div style="margin-top:1.6rem"><a class="btn btn-gold" href="mailto:admin@gruposiriuscapital.com.br?subject=Trabalhe%20conosco%20-%20%5Bsua%20%C3%A1rea%5D&amp;body=Ol%C3%A1!%20Segue%20meu%20curr%C3%ADculo.%0A%0A%C3%81rea%20de%20interesse%3A%0ACidade%20onde%20moro%3A%0ACertifica%C3%A7%C3%B5es%3A%0ALinkedIn%3A%0A%0AUm%20pouco%20sobre%20mim%3A%0A">Enviar meu currículo</a></div>
+      </div>
+      <div data-reveal="right" style="--d:.1s">
+        <p class="eyebrow" style="margin-bottom:.6rem">O que enviar</p>
+        <ol>
+          <li><h3>Currículo em PDF</h3><p>Formação e experiência, com o que você fazia em cada lugar. Uma ou duas páginas bastam.</p></li>
+          <li><h3>Certificações, se tiver</h3><p>CFP, CEA, CPA-20, ANCORD ou outras. Não ter ainda não elimina ninguém.</p></li>
+          <li><h3>Área e cidade</h3><p>Em que área você quer trabalhar e onde mora. Atendemos em Salvador e Lauro de Freitas.</p></li>
+          <li><h3>Um parágrafo sobre você</h3><p>Por que planejamento financeiro e por que a Sirius. Escrito por você, sem modelo pronto.</p></li>
+          <li><h3>LinkedIn ou portfólio</h3><p>Opcional, mas ajuda a conhecer o seu trabalho.</p></li>
+        </ol>
+        <p class="note">Usamos o que você enviar só para o processo seletivo. O currículo fica guardado por até 12 meses e você pode pedir a exclusão antes, pelo mesmo e-mail.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section data-tone="dark" id="contato" style="padding-bottom:4rem">
   <div class="wrap">
     <div class="head">
       <div data-reveal>
-        <p class="eyebrow">10 — Contato</p>
+        <p class="eyebrow">11 — Contato</p>
         <h2>Fale com a Sirius Capital.</h2>
       </div>
       <div data-reveal style="--d:.1s"><a class="btn btn-wa" href="https://wa.me/5571999347779?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20consultoria%20da%20Sirius%20Capital.">Iniciar conversa no WhatsApp →</a></div>
@@ -999,7 +1039,7 @@ html.cur-on input,html.cur-on textarea{cursor:text}
         <a href="/para-quem-virou-pj">Virou PJ?</a>
         <a href="/nexus">NEXUS</a>
         <a href="/para-voce">Sirius para você</a>
-        <a href="/para-consultores">Sirius para consultores</a>
+        <a href="/#trabalhe">Trabalhe conosco</a>
         <a href="https://app.gruposiriuscapital.com.br">Entrar no sistema</a>
         <a href="https://instagram.com/siriuscapital.br">Instagram</a>
         <a href="/politica-de-privacidade">Privacidade</a>
